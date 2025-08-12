@@ -1126,11 +1126,25 @@ $\frac{\mathit{dN}_{2}}{\mathit{dt}} = \varepsilon_{2}N_{2}$
 
 $\frac{\mathit{dN}_{2}}{\mathit{dt}}$
 
+$\frac{\mathit{dN}_{2}}{\mathit{dt}} = 2$
+
+$\frac{\mathit{dN}_{2}}{\mathit{dt}} = \varepsilon$
+
+$\frac{\mathit{dN}_{2}}{\mathit{dt}} = \varepsilon_2$
+
+$\frac{\mathit{dN}_{2}}{\mathit{dt}} = \varepsilon_2N_2$
+
 $\varepsilon_{2}N_{2}$
+
+$\varepsilon_2N_2$
 
 $\varepsilon_{2}N_{2} = 0$
 
-$\varepsilon_{2}N_{2} = N_{2}$
+$\varepsilon_{2}N_{2}$ = N_{2}$
+
+$\varepsilon_{2}N_{2}$ = {\mathit{dt}}$
+
+$\varepsilon_{2}N_{2}$ = \varepsilon$
 
 
 When the two species are brought into contact in a certain area or
