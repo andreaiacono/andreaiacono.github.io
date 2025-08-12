@@ -1120,9 +1120,9 @@ intrinsically negative growth rate. Given *N*~*1*~*(t)*, number of prey
 at time *t*, and *N*~*2*~*(t)*, number of predators at time *t*, we
 have:
 
-${{\frac{\mathit{\text{dN}_{\mathrm{1}}}}{\mathit{\text{dt}}} = \varepsilon_{1}}N_{1}\qquad{\varepsilon_{1} > 0}}{}$
+${\frac{\mathit{\text{dN}_{\mathrm{1}}}}{\mathit{\text{dt}}} = \varepsilon_{1}}N_{1}\qquad{\varepsilon_{1} > 0}}$
 
-${{\frac{\mathit{\text{dN}_{\mathrm{2}}}}{\mathit{\text{dt}}} = \varepsilon_{2}}N_{2}\qquad{\varepsilon_{2} > 0}}{}$
+${\frac{\mathit{\text{dN}_{\mathrm{2}}}}{\mathit{\text{dt}}} = \varepsilon_{2}}N_{2}\qquad{\varepsilon_{2} > 0}}$
 
 When the two species are brought into contact in a certain area or
 volume, the predators will attack the prey and a certain percentage of
@@ -1137,20 +1137,20 @@ positive constant p, while the increase of predators per unit time is
 proportional, through a coefficient e, to the same product. Ultimately,
 we have these two equations:
 
-${{\frac{\mathit{\text{dN}_{\mathrm{1}}}}{\mathit{\text{dt}}} = \varepsilon_{1}}{N_{1} - \mathit{\text{pN}_{\mathrm{1}}}}N_{2}\mspace{72mu}\varepsilon_{1},{p > 0}}{}$
+${\frac{\mathit{\text{dN}_{\mathrm{1}}}}{\mathit{\text{dt}}} = \varepsilon_{1}}{N_{1} - \mathit{\text{pN}_{\mathrm{1}}}}N_{2}\mspace{72mu}\varepsilon_{1},{p > 0}}$
 
-${{\frac{\mathit{\text{dN}_{\mathrm{2}}}}{\mathit{\text{dt}}} = {- \varepsilon_{2}}}{N_{2} + \mathit{\text{epN}_{\mathrm{1}}}}N_{2}\mspace{72mu}\varepsilon_{2},{p > 0}}{}$
+${\frac{\mathit{\text{dN}_{\mathrm{2}}}}{\mathit{\text{dt}}} = {- \varepsilon_{2}}}{N_{2} + \mathit{\text{epN}_{\mathrm{1}}}}N_{2}\mspace{72mu}\varepsilon_{2},{p > 0}}$
 
 To understand what the properties of these famous equations are, it is
 convenient first to look for whether there are equilibrium states, that
 is, population levels that once reached are maintained indefinitely. To
 find them, it is enough to impose that the first derivatives with
-respect to time, of N1(t) and N2(t), are null. Two solutions are
+respect to time, of ${N_{1}(t)$ and ${N_{2}(t)$, are null. Two solutions are
 obtained:
 
 $N_{1} = N_{2} = 0$
 
-$N_{1} = {- \frac{\varepsilon_{2}}{\mathit{\text{ep}}} }$  ${N_{2} = \frac{\varepsilon_{1}}{p}}$
+$N_{1} = {- \frac{\varepsilon_{2}}{\mathit{\text{ep}}} }$ and  ${N_{2} = \frac{\varepsilon_{1}}{p}}$
 
 Apart from the trivial equilibrium in which population densities are
 null (in which evidently animals cannot create themselves from nothing),
@@ -1167,7 +1167,7 @@ equilibrium, there is a tendency to return toward these same values,
 that is, whether we are in the presence of a stable situation. To answer
 this question, it is possible to directly calculate the trend of
 solutions to the Lotka-Volterra equations in the
-N1 - N2 plane. After solving the differential equation
+$N_{1}$ - $N_{2}$ plane. After solving the differential equation
 obtained by rewriting the equations, a family of closed and concentric
 curves is obtained whose form is shown in figure 2.2.
 
@@ -1176,10 +1176,10 @@ curves is obtained whose form is shown in figure 2.2.
 Figure 2.2
 
 Such curves constitute the trajectories of the
-Lotka-Volterra model, that is, the locus of pairs (N1, N2)
+Lotka-Volterra model, that is, the locus of pairs $(N_{1}, N_{2})$
 as time varies. The arrow on the trajectories indicates precisely how
 population levels move along the trajectory as time varies. Since the
-trajectories are closed curves, populations N1 and N2
+trajectories are closed curves, populations $N_{1}$ and $N_{2}$
 cyclically resume the same values. Therefore, it is only simply stable,
 since perturbations never amplify, nor, on the other hand, do they ever
 dampen.
