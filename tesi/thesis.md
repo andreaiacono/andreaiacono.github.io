@@ -240,19 +240,22 @@ used; Table 1.1 indicates the main ones:
 | Transfer Type              | Function | Graph                      |
 | --- | --- | --- |
 | Linear|  $T(x) = αx$    | ![](images/10000000000000BB0000008C42D5FF54.png) |
-| Ramp  | $T(x) = \begin{cases}
+| Ramp  | ```math
+T(x) = \begin{cases}
 +y & \Leftrightarrow x \geq \gamma \\
 x & \Leftrightarrow |x| < \gamma \\
 -y & \Leftrightarrow x \leq -\gamma
-\end{cases}$ | ![](images/10000000000000BB0000008C9932557C.png) |
-|Step      |  $T(x) = \begin{cases}
+\end{cases}``` | ![](images/10000000000000BB0000008C9932557C.png) |
+|Step      |  ```math
+T(x) = \begin{cases}
 +g & \Leftrightarrow x \gt 0 \\
 -d & \Leftrightarrow x \leq 0
-\end{cases}$ | ![](images/10000000000000BB0000008CE1FAFCDC.png) |
-|   Boolean   |    $T(x) = \begin{cases}
+\end{cases}``` | ![](images/10000000000000BB0000008CE1FAFCDC.png) |
+|   Boolean   |    ```math
+T(x) = \begin{cases}
 0 & \Leftrightarrow x \leq 0 \\
 g & \Leftrightarrow x \gt 0
-\end{cases}$   | ![](images/10000000000000BB0000008CBA8CFEB4.png) |
+\end{cases}```   | ![](images/10000000000000BB0000008CBA8CFEB4.png) |
 |  Sigmoid    |   $T(x) = \frac{1}{1 + e^{-x}}$ | ![](images/10000000000000BB0000008C832B11D8.png) |
 |  Hperbolic Tangent    |   $T(x) = tanh(x)$   | ![](images/10000000000000BB0000008C659E4F73.png) |
 
