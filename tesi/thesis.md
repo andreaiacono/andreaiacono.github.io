@@ -1120,24 +1120,9 @@ intrinsically negative growth rate. Given $N_{1}(t)$, number of prey
 at time *t*, and $N_{2}(t)$, number of predators at time *t*, we
 have:
 
+$\frac{\mathit{dN_1}}{\mathit{dt}} = \varepsilon_1N_1 \space \space \space \space \space \varepsilon_1 > 0$
 
-$\frac{\mathit{dN}_{1}}{\mathit{dt}} = \varepsilon_{1}N_{1} \space \space \space \varepsilon_{1} > 0$
-
-$\frac{\mathit{dN}_{2}}{\mathit{dt}} = \varepsilon_{2}N_{2}$
-
-$\frac{\mathit{dN}_{2}}{\mathit{dt}}$
-
-$\frac{\mathit{dN}_{2}}{\mathit{dt}} = 2$
-
-$\frac{\mathit{dN}_{2}}{\mathit{dt}} = \varepsilon$
-
-$\frac{\mathit{dN}_{2}}{\mathit{dt}} = \varepsilon_2N_2$
-
-$\frac{\mathit{dN}_{2}}{\mathit{dt}} = \varepsilon_1N_1 \space \space \space \varepsilon_1 > 0$
-
-$\frac{\mathit{dN}_{2}}{\mathit{dt}} = \varepsilon_1N_1     \varepsilon_1 > 0$
-
-$\frac{\mathit{dN}_{2}}{\mathit{dt}} = \varepsilon_1N_1 \, \, \, \, \, \, \, \, \varepsilon_1 > 0$
+$\frac{\mathit{dN_2}}{\mathit{dt}} = \varepsilon_2N_2 \space \space \space \space \space \varepsilon_2 > 0$
 
 
 
@@ -1154,9 +1139,9 @@ positive constant p, while the increase of predators per unit time is
 proportional, through a coefficient _e_, to the same product. Ultimately,
 we have these two equations:
 
-$\frac{\mathit{dN_1}}{\mathit{dt}} = \varepsilon_1N_1 - \mathit{pN_1N_2}  \quad \varepsilon_1,p > 0$
+$\frac{\mathit{dN_1}}{\mathit{dt}} = \varepsilon_1N_1 - \mathit{pN_1N_2} \space \space \space \space \space \varepsilon_1,\mathit{p} > 0$
 
-$\frac{\mathit{dN_2}}{\mathit{dt}} = - \varepsilon_2N_2 + \mathit{epN_1N_2}  \, \, \, \, \, \, \varepsilon_2,p > 0$
+$\frac{\mathit{dN_2}}{\mathit{dt}} = - \varepsilon_2N_2 + \mathit{epN_1N_2} \space \space \space \space \space \varepsilon_2,\mathit{p} > 0$
 
 To understand what the properties of these famous equations are, it is
 convenient first to look for whether there are equilibrium states, that
