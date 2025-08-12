@@ -1130,22 +1130,9 @@ $\frac{\mathit{dN}_{2}}{\mathit{dt}} = 2$
 
 $\frac{\mathit{dN}_{2}}{\mathit{dt}} = \varepsilon$
 
-$\frac{\mathit{dN}_{2}}{\mathit{dt}} = \varepsilon_2$
-
 $\frac{\mathit{dN}_{2}}{\mathit{dt}} = \varepsilon_2N_2$
 
-$\varepsilon_{2}N_{2}$
-
-$\varepsilon_2N_2$
-
-$\varepsilon_{2}N_{2} = 0$
-
-$\varepsilon_{2}N_{2}$ = N_{2}$
-
-$\varepsilon_{2}N_{2}$ = {\mathit{dt}}$
-
-$\varepsilon_{2}N_{2}$ = \varepsilon$
-
+$\frac{\mathit{dN}_{2}}{\mathit{dt}} = \varepsilon_1N_1 \space \space \space \varepsilon_{1} > 0$
 
 When the two species are brought into contact in a certain area or
 volume, the predators will attack the prey and a certain percentage of
