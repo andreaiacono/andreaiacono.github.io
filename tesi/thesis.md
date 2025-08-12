@@ -1154,9 +1154,9 @@ positive constant p, while the increase of predators per unit time is
 proportional, through a coefficient _e_, to the same product. Ultimately,
 we have these two equations:
 
-$\frac{\mathit{dN_1}}{\mathit{dt}} = \varepsilon_1N_1 - \mathit{pN_1N_2}  \, \, \, \, \, \, \ \varepsilon_1,p > 0$
+$\frac{\mathit{dN_1}}{\mathit{dt}} = \varepsilon_1N_1 - \mathit{pN_1N_2}  \quad \varepsilon_1,p > 0$
 
-$\frac{\mathit{dN_2}}{\mathit{dt}} = - \varepsilon_2N_2 + \mathit{epN_1N_2}  \, \, \, \, \, \, \ \varepsilon_2,p > 0$
+$\frac{\mathit{dN_2}}{\mathit{dt}} = - \varepsilon_2N_2 + \mathit{epN_1N_2}  \, \, \, \, \, \, \varepsilon_2,p > 0$
 
 To understand what the properties of these famous equations are, it is
 convenient first to look for whether there are equilibrium states, that
