@@ -237,27 +237,14 @@ of the transfer function, which returns the artificial neuron's output.
 Depending on the neuron's purpose, different transfer functions can be
 used; Table 1.1 indicates the main ones:
 
-| Transfer Type              | Function | Graph                      |
+| Transfer Type | Function | Graph |
 | --- | --- | --- |
-| Linear|  $T(x) = αx$    | ![](images/10000000000000BB0000008C42D5FF54.png) |
-| Ramp  | ```math
-T(x) = \begin{cases}
-+y & \Leftrightarrow x \geq \gamma \\
-x & \Leftrightarrow |x| < \gamma \\
--y & \Leftrightarrow x \leq -\gamma
-\end{cases}``` | ![](images/10000000000000BB0000008C9932557C.png) |
-|Step      |  ```math
-T(x) = \begin{cases}
-+g & \Leftrightarrow x \gt 0 \\
--d & \Leftrightarrow x \leq 0
-\end{cases}``` | ![](images/10000000000000BB0000008CE1FAFCDC.png) |
-|   Boolean   |    ```math
-T(x) = \begin{cases}
-0 & \Leftrightarrow x \leq 0 \\
-g & \Leftrightarrow x \gt 0
-\end{cases}```   | ![](images/10000000000000BB0000008CBA8CFEB4.png) |
-|  Sigmoid    |   $T(x) = \frac{1}{1 + e^{-x}}$ | ![](images/10000000000000BB0000008C832B11D8.png) |
-|  Hperbolic Tangent    |   $T(x) = tanh(x)$   | ![](images/10000000000000BB0000008C659E4F73.png) |
+| Linear| $T(x) = αx$ | ![](images/10000000000000BB0000008C42D5FF54.png) |
+| Ramp | $T(x) = \left\{ +y \text{ if } x \geq \gamma \text{; } x \text{ if } \|x\| < \gamma \text{; } -y \text{ if } x \leq -\gamma \right.$ | ![](images/10000000000000BB0000008C9932557C.png) |
+| Step | $T(x) = \left\{ +g \text{ if } x > 0 \text{; } -d \text{ if } x \leq 0 \right.$ | ![](images/10000000000000BB0000008CE1FAFCDC.png) |
+| Boolean | $T(x) = \left\{ 0 \text{ if } x \leq 0 \text{; } g \text{ if } x > 0 \right.$ | ![](images/10000000000000BB0000008CBA8CFEB4.png) |
+| Sigmoid | $T(x) = \frac{1}{1 + e^{-x}}$ | ![](images/10000000000000BB0000008C832B11D8.png) |
+| Hyperbolic Tangent | $T(x) = \tanh(x)$ | ![](images/10000000000000BB0000008C659E4F73.png) |
 
 
 Table 1.1 -- Transfer functions for artificial neuron output
