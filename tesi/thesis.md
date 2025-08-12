@@ -241,18 +241,21 @@ used; Table 1.1 indicates the main ones:
 
 | Transfer Type              | Function | Graph                      |
 | --- | --- | --- |
-| Linear|  T(x) = αx       | ![](images/10000000000000BB0000008C42D5FF54.png) |
-| Ramp  | ```
+| Linear|  T(x) = αx    | ![](images/10000000000000BB0000008C42D5FF54.png) |
+| Ramp  | ```math
 T(x) = { +y ⟷ x ≥ y
-       { x ⟷ |x| < y  
-       { -y ⟷ x ≤ -y
-``` | ![](images/10000000000000BB0000008C9932557C.png) |
-|Step      |  ```T(x) = { +g ⟷ x > 0
-       { -d ⟷ x ≤ 0```        | ![](images/10000000000000BB0000008CE1FAFCDC.png) |
-|   Boolean   |    ```T(x) = { 0 ⟷ x ≤ 0
-       { g ⟷ x > 0```      | ![](images/10000000000000BB0000008CBA8CFEB4.png) |
-|  Sigmoid    |   ```T(x) = 1/(1 + e^(-x))```       | ![](images/10000000000000BB0000008C832B11D8.png) |
-|  Hperbolic Tangent    |    ```T(x) = tanh(x)```      | ![](images/10000000000000BB0000008C659E4F73.png) |
+       { x ⟷ |x| < y
+       { -y ⟷ x ≤ -y``` | ![](images/10000000000000BB0000008C9932557C.png) |
+|Step      |  ```math
+T(x) = { +g ⟷ x > 0
+       { -d ⟷ x ≤ 0```  | ![](images/10000000000000BB0000008CE1FAFCDC.png) |
+|   Boolean   |    ```math
+T(x) = { 0 ⟷ x ≤ 0
+       { g ⟷ x > 0```    | ![](images/10000000000000BB0000008CBA8CFEB4.png) |
+|  Sigmoid    |   ```math
+T(x) = 1/(1 + e^(-x))``` | ![](images/10000000000000BB0000008C832B11D8.png) |
+|  Hperbolic Tangent    |    ```math
+T(x) = tanh(x)```        | ![](images/10000000000000BB0000008C659E4F73.png) |
 
 
 Table 1.1 -- Transfer functions for artificial neuron output
@@ -444,7 +447,7 @@ bits 0 and 1:
 Figure 1.5
 
 
-1.2.3 Associated Use of Genetic Algorithms and Neural Networks
+### Associated Use of Genetic Algorithms and Neural Networks
 
 The genetic algorithms seen in previous paragraphs can evolve almost any
 computer structure, provided it is sensibly encoded as a genome. Even
