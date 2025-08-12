@@ -1149,8 +1149,8 @@ respect to time, of N1(t) and N2(t), are null. Two solutions are
 obtained:
 
 ${N_{1} = N_{2} = 0}$
-${N_{1} = {- \frac{\varepsilon_{2}}{\mathit{\text{ep}}}}}\mspace{108mu}$  ${N_{2} = \frac{\varepsilon_{1}}{p}}}{}$
 
+${N_{1} = {- \frac{\varepsilon_{2}}{\mathit{\text{ep}}}}\mspace{108mu}$  ${N_{2} = \frac{\varepsilon_{1}}{p}$
 
 Apart from the trivial equilibrium in which population densities are
 null (in which evidently animals cannot create themselves from nothing),
