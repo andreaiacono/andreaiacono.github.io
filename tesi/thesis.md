@@ -1120,9 +1120,9 @@ intrinsically negative growth rate. Given *N*~*1*~*(t)*, number of prey
 at time *t*, and *N*~*2*~*(t)*, number of predators at time *t*, we
 have:
 
-${\frac{\mathit{\text{dN}_{\mathrm{1}}}}{\mathit{\text{dt}}} = \varepsilon_{1}}N_{1}\qquad{\varepsilon_{1} > 0}}$
+${\frac{\mathit{\text{dN}_{\mathrm{1}}}}{\mathit{\text{dt}}} = \varepsilon_{1}}N_{1}\qquad{\varepsilon_{1} > 0}$
 
-${\frac{\mathit{\text{dN}_{\mathrm{2}}}}{\mathit{\text{dt}}} = \varepsilon_{2}}N_{2}\qquad{\varepsilon_{2} > 0}}$
+${ \frac{\mathit{\text{dN}_{\mathrm{2}}}}{\mathit{\text{dt}}} = \varepsilon_{2}}N_{2}\qquad{\varepsilon_{2} > 0}$
 
 When the two species are brought into contact in a certain area or
 volume, the predators will attack the prey and a certain percentage of
@@ -1134,12 +1134,12 @@ encounter between a prey and a predator was proportional to the product
 of their respective densities. Therefore, the loss of prey per unit time
 can be assumed proportional to the product of respective densities for a
 positive constant p, while the increase of predators per unit time is
-proportional, through a coefficient e, to the same product. Ultimately,
+proportional, through a coefficient _e_, to the same product. Ultimately,
 we have these two equations:
 
-${\frac{\mathit{\text{dN}_{\mathrm{1}}}}{\mathit{\text{dt}}} = \varepsilon_{1}}{N_{1} - \mathit{\text{pN}_{\mathrm{1}}}}N_{2}\mspace{72mu}\varepsilon_{1},{p > 0}}$
+${\frac{\mathit{\text{dN}_{\mathrm{1}}}}{\mathit{\text{dt}}} = \varepsilon_{1}}{N_{1} - \mathit{{p}{N}_{\mathrm{1}}}}N_{2}  \space \space \space \space \space \space \space \varepsilon_{1},{p > 0}$
 
-${\frac{\mathit{\text{dN}_{\mathrm{2}}}}{\mathit{\text{dt}}} = {- \varepsilon_{2}}}{N_{2} + \mathit{\text{epN}_{\mathrm{1}}}}N_{2}\mspace{72mu}\varepsilon_{2},{p > 0}}$
+${\frac{\mathit{\text{dN}_{\mathrm{2}}}}{\mathit{\text{dt}}} = {- \varepsilon_{2}}}{N_{2} + \mathit{{epN}_{\mathrm{1}}}}N_{2} \space \space \space \space \space \space \space \varepsilon_{2},{p > 0}$
 
 To understand what the properties of these famous equations are, it is
 convenient first to look for whether there are equilibrium states, that
