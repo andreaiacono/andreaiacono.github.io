@@ -1128,6 +1128,11 @@ $\frac{\mathit{dN}_{2}}{\mathit{dt}}$
 
 $\varepsilon_{2}N_{2}$
 
+$\varepsilon_{2}N_{2} = 0$
+
+$\varepsilon_{2}N_{2} = N_{2}$
+
+
 When the two species are brought into contact in a certain area or
 volume, the predators will attack the prey and a certain percentage of
 these attacks will result in the death of the prey. Lotka and Volterra,
