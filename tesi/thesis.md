@@ -237,20 +237,18 @@ of the transfer function, which returns the artificial neuron's output.
 Depending on the neuron's purpose, different transfer functions can be
 used; Table 1.1 indicates the main ones:
 
-<table>
-<tr><th>Transfer Type</th><th>Function</th><th>Graph</th></tr>
-<tr><td>Linear</td><td>$T(x) = αx$</td><td>![](images/10000000000000BB0000008C42D5FF54.png)</td></tr>
-<tr><td>Ramp</td><td>$$T(x) = \begin{cases} +y & \Leftrightarrow x \geq \gamma \\ x & \Leftrightarrow |x| < \gamma \\ -y & \Leftrightarrow x \leq -\gamma \end{cases}$$</td><td>![](images/10000000000000BB0000008C9932557C.png)</td></tr>
-<tr><td>Step</td><td>$$T(x) = \begin{cases} +g & \Leftrightarrow x > 0 \\ -d & \Leftrightarrow x \leq 0 \end{cases}$$</td><td>![](images/10000000000000BB0000008CE1FAFCDC.png)</td></tr>
-<tr><td>Boolean</td><td>$$T(x) = \begin{cases} 0 & \Leftrightarrow x \leq 0 \\ g & \Leftrightarrow x > 0 \end{cases}$$</td><td>![](images/10000000000000BB0000008CBA8CFEB4.png)</td></tr>
-<tr><td>Sigmoid</td><td>$T(x) = \frac{1}{1 + e^{-x}}$</td><td>![](images/10000000000000BB0000008C832B11D8.png)</td></tr>
-<tr><td>Hyperbolic Tangent</td><td>$T(x) = \tanh(x)$</td><td>![](images/10000000000000BB0000008C659E4F73.png)</td></tr>
-</table>
-
+| Transfer Type | Function | Graph |
+| --- | --- | --- |
+| Linear| $T(x) = αx$ | ![](images/10000000000000BB0000008C42D5FF54.png) |
+| Ramp | $T(x) = +y$ if $x \geq \gamma$ <br> $T(x) = x$ if $\|x\| < \gamma$ <br> $T(x) = -y$ if $x \leq -\gamma$ | ![](images/10000000000000BB0000008C9932557C.png) |
+| Step | $T(x) = +g$ if $x > 0$ <br> $T(x) = -d$ if $x \leq 0$ | ![](images/10000000000000BB0000008CE1FAFCDC.png) |
+| Boolean | $T(x) = 0$ if $x \leq 0$ <br> $T(x) = g$ if $x > 0$ | ![](images/10000000000000BB0000008CBA8CFEB4.png) |
+| Sigmoid | $T(x) = \frac{1}{1 + e^{-x}}$ | ![](images/10000000000000BB0000008C832B11D8.png) |
+| Hyperbolic Tangent | $T(x) = \tanh(x)$ | ![](images/10000000000000BB0000008C659E4F73.png) |
 
 Table 1.1 -- Transfer functions for artificial neuron output
 
-Figure 1.2 represents a formalization of an artificial neuron with three
+The figure 1.2 represents a formalization of an artificial neuron with three
 inputs: weights $w_1$, $w_2$ and $w_3$ are multiplied
 by the inputs and summed within the neuron; if this value exceeds the
 neuron's threshold value $\mu_i$, it is used as a parameter of the
