@@ -241,18 +241,18 @@ used; Table 1.1 indicates the main ones:
 
 | Transfer Type              | Function | Graph                      |
 | --- | --- | --- |
-| Linear|  T(x) = αx       | ![](images/10000000000000BB0000008C42D5FF54.png)
+| Linear|  T(x) = αx       | ![](images/10000000000000BB0000008C42D5FF54.png) |
 | Ramp  | ```
 T(x) = { +y ⟷ x ≥ y
        { x ⟷ |x| < y  
        { -y ⟷ x ≤ -y
 ``` | ![](images/10000000000000BB0000008C9932557C.png) |
 |Step      |  ```T(x) = { +g ⟷ x > 0
-       { -d ⟷ x ≤ 0```        | ![](images/10000000000000BB0000008CE1FAFCDC.png)
+       { -d ⟷ x ≤ 0```        | ![](images/10000000000000BB0000008CE1FAFCDC.png) |
 |   Boolean   |    ```T(x) = { 0 ⟷ x ≤ 0
-       { g ⟷ x > 0```      | ![](images/10000000000000BB0000008CBA8CFEB4.png)
-|  Sigmoid    |   ```T(x) = 1/(1 + e^(-x))```       | ![](images/10000000000000BB0000008C832B11D8.png)
-|  Hperbolic Tangent    |    ```T(x) = tanh(x)```      | ![](images/10000000000000BB0000008C659E4F73.png)
+       { g ⟷ x > 0```      | ![](images/10000000000000BB0000008CBA8CFEB4.png) |
+|  Sigmoid    |   ```T(x) = 1/(1 + e^(-x))```       | ![](images/10000000000000BB0000008C832B11D8.png) |
+|  Hperbolic Tangent    |    ```T(x) = tanh(x)```      | ![](images/10000000000000BB0000008C659E4F73.png) |
 
 
 Table 1.1 -- Transfer functions for artificial neuron output
