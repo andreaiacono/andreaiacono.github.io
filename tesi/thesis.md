@@ -1120,9 +1120,9 @@ intrinsically negative growth rate. Given *N*~*1*~*(t)*, number of prey
 at time *t*, and *N*~*2*~*(t)*, number of predators at time *t*, we
 have:
 
-$\frac{\mathit{\text{dN}_{\mathrm{1}}}}{\mathit{\text{dt}}} = \varepsilon_{1}}N_{1}\qquad{\varepsilon_{1} > 0$
+${ \frac{\mathit{{dN}_{1}}}{\mathit{{dt}}} = \varepsilon_{1}}N_{1}\qquad{\varepsilon_{1} > 0}$
 
-$\frac{\mathit{\text{dN}_{\mathrm{2}}}}{\mathit{\text{dt}}} = \varepsilon_{2}}N_{2}\qquad{\varepsilon_{2} > 0$
+${ \frac{\mathit{{dN}_{2}}}{\mathit{{dt}}} = \varepsilon_{2}}N_{2}\qquad{\varepsilon_{2} > 0}$
 
 When the two species are brought into contact in a certain area or
 volume, the predators will attack the prey and a certain percentage of
@@ -1137,9 +1137,9 @@ positive constant p, while the increase of predators per unit time is
 proportional, through a coefficient _e_, to the same product. Ultimately,
 we have these two equations:
 
-${\frac{\mathit{\text{dN}_{\mathrm{1}}}}{\mathit{\text{dt}}} = \varepsilon_{1}}{N_{1} - \mathit{{p}{N}_{\mathrm{1}}}}N_{2}  \space \space \space \space \space \space \space \varepsilon_{1},{p > 0}$
+${\frac{\mathit{{dN}_{1}}}{\mathit{dt}} = \varepsilon_{1}}{N_{1} - \mathit{{p}{N}_{1}}}N_{2}  \space \space \space \space \space \space \space \varepsilon_{1},{p > 0}$
 
-${\frac{\mathit{\text{dN}_{\mathrm{2}}}}{\mathit{\text{dt}}} = {- \varepsilon_{2}}}{N_{2} + \mathit{{epN}_{\mathrm{1}}}}N_{2} \space \space \space \space \space \space \space \varepsilon_{2},{p > 0}$
+${\frac{\mathit{{dN}_{2}}}{\mathit{{dt}}} = - \varepsilon_{2}}{N_{2} + \mathit{{epN}_{1}}}N_{2} \space \space \space \space \space \space \space \varepsilon_{2},{p > 0}$
 
 To understand what the properties of these famous equations are, it is
 convenient first to look for whether there are equilibrium states, that
@@ -1150,7 +1150,7 @@ obtained:
 
 $N_{1} = N_{2} = 0$
 
-$N_{1} = {- \frac{\varepsilon_{2}}{\mathit{\text{ep}}} }$ and  ${N_{2} = \frac{\varepsilon_{1}}{p}}$
+$N_{1} = {- \frac{\varepsilon_{2}}{\mathit{{ep}}} }$ and  ${N_{2} = \frac{\varepsilon_{1}}{p}}$
 
 Apart from the trivial equilibrium in which population densities are
 null (in which evidently animals cannot create themselves from nothing),
