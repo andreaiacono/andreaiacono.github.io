@@ -240,9 +240,9 @@ used; Table 1.1 indicates the main ones:
 | Transfer Type | Function | Graph |
 | --- | --- | --- |
 | Linear| $T(x) = αx$ | ![](images/10000000000000BB0000008C42D5FF54.png) |
-| Ramp | $T(x) = \left\{ +y \text{ if } x \geq \gamma \text{; } x \text{ if } \|x\| < \gamma \text{; } -y \text{ if } x \leq -\gamma \right.$ | ![](images/10000000000000BB0000008C9932557C.png) |
-| Step | $T(x) = \left\{ +g \text{ if } x > 0 \text{; } -d \text{ if } x \leq 0 \right.$ | ![](images/10000000000000BB0000008CE1FAFCDC.png) |
-| Boolean | $T(x) = \left\{ 0 \text{ if } x \leq 0 \text{; } g \text{ if } x > 0 \right.$ | ![](images/10000000000000BB0000008CBA8CFEB4.png) |
+| Ramp | $T(x) = \left\{ \begin{array}{l} +y \text{ if } x \geq \gamma \\ x \text{ if } \|x\| < \gamma \\ -y \text{ if } x \leq -\gamma \end{array} \right.$ | ![](images/10000000000000BB0000008C9932557C.png) |
+| Step | $T(x) = \left\{ \begin{array}{l} +g \text{ if } x > 0 \\ -d \text{ if } x \leq 0 \end{array} \right.$ | ![](images/10000000000000BB0000008CE1FAFCDC.png) |
+| Boolean | $T(x) = \left\{ \begin{array}{l} 0 \text{ if } x \leq 0 \\ g \text{ if } x > 0 \end{array} \right.$ | ![](images/10000000000000BB0000008CBA8CFEB4.png) |
 | Sigmoid | $T(x) = \frac{1}{1 + e^{-x}}$ | ![](images/10000000000000BB0000008C832B11D8.png) |
 | Hyperbolic Tangent | $T(x) = \tanh(x)$ | ![](images/10000000000000BB0000008C659E4F73.png) |
 
