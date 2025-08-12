@@ -1119,9 +1119,10 @@ excluded from its food, can only die of starvation and have an
 intrinsically negative growth rate. Given *N*~*1*~*(t)*, number of prey
 at time *t*, and *N*~*2*~*(t)*, number of predators at time *t*, we
 have:
-${ \frac{\mathit{dN}_{1}}{\mathit{dt}} = \varepsilon_{1}}N_{1} \space \space \space {\varepsilon_{1} > 0}$
 
-${ \frac{\mathit{dN}_{2}}{\mathit{dt}}} = \varepsilon_{2}N_{2} \space \space \space {\varepsilon_{2} > 0}$
+$\frac{\mathit{dN}_{1}}{\mathit{dt}} = \varepsilon_{1}N_{1} \space \space \space \varepsilon_{1} > 0$
+
+$\frac{\mathit{dN}_{2}}{\mathit{dt}} = \varepsilon_{2}N_{2}$
 
 When the two species are brought into contact in a certain area or
 volume, the predators will attack the prey and a certain percentage of
