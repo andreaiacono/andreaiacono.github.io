@@ -1120,9 +1120,9 @@ intrinsically negative growth rate. Given *N*~*1*~*(t)*, number of prey
 at time *t*, and *N*~*2*~*(t)*, number of predators at time *t*, we
 have:
 
-${\frac{\mathit{\text{dN}_{\mathrm{1}}}}{\mathit{\text{dt}}} = \varepsilon_{1}}N_{1}\qquad{\varepsilon_{1} > 0}$
+$\frac{\mathit{\text{dN}_{\mathrm{1}}}}{\mathit{\text{dt}}} = \varepsilon_{1}}N_{1}\qquad{\varepsilon_{1} > 0$
 
-${ \frac{\mathit{\text{dN}_{\mathrm{2}}}}{\mathit{\text{dt}}} = \varepsilon_{2}}N_{2}\qquad{\varepsilon_{2} > 0}$
+$\frac{\mathit{\text{dN}_{\mathrm{2}}}}{\mathit{\text{dt}}} = \varepsilon_{2}}N_{2}\qquad{\varepsilon_{2} > 0$
 
 When the two species are brought into contact in a certain area or
 volume, the predators will attack the prey and a certain percentage of
@@ -1145,7 +1145,7 @@ To understand what the properties of these famous equations are, it is
 convenient first to look for whether there are equilibrium states, that
 is, population levels that once reached are maintained indefinitely. To
 find them, it is enough to impose that the first derivatives with
-respect to time, of ${N_{1}(t)$ and ${N_{2}(t)$, are null. Two solutions are
+respect to time, of $N_{1}(t)$ and $N_{2}(t)$, are null. Two solutions are
 obtained:
 
 $N_{1} = N_{2} = 0$
