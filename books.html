@@ -1,0 +1,3423 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .stats {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .stats span {
+            font-size: 2em;
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .year-section {
+            margin-bottom: 50px;
+        }
+
+        .year-header {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .book {
+            margin-bottom: 1px;
+            padding: 1px;
+            transition: background-color 0.2s;
+            border-radius: 4px;
+        }
+
+        .book:hover {
+            background-color: #f8f9fa;
+        }
+
+        .book-date {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            display: inline-block;
+            min-width: 80px;
+        }
+
+        .book-title {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .book-title:hover {
+            color: #3498db;
+        }
+
+        .book-title.no-link {
+            color: #2c3e50;
+            cursor: default;
+        }
+
+        .book-authors {
+            color: #95a5a6;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .book-comment {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-left: 0px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .book-date {
+                display: block;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Reading List</h1>
+        <p class="subtitle">Books I've read over the years</p>
+
+        <div class="stats">
+            <span>368</span> books read
+        </div>
+
+        <div id="booksList">
+
+            <div class="year-section">
+                <h2 class="year-header">2025</h2>
+
+                <div class="book">
+                    <span class="book-date">28/11/25</span>
+                    <a href="https://books.google.it/books?vid=9788834603321" class="book-title" target="_blank">Costruire il nemico</a>
+ di Umberto Eco
+
+                    <span class="book-comment"> molto dotto ma poco incisivo, piu' un resoconto storico che uno studio sulle motivazioni.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">27/11/25</span>
+                    <a href="https://books.google.it/books?vid=9780143108054" class="book-title" target="_blank">The professor in the cage</a>
+ di Jonathan Gottschall
+
+                    <span class="book-comment"> bof, molto bio, poco basato su fatti e incredibilmente biased.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">20/11/25</span>
+                    <span class="book-title no-link">Pescatore di perle</span>
+
+                    <span class="book-comment"> devo dire che mi ha irritato parecchio, tempo buttato via.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">18/11/25</span>
+                    <a href="https://books.google.it/books?vid=9788804801450" class="book-title" target="_blank">Predatori</a>
+ di Stefano Nazzi
+
+                    <span class="book-comment"> interessante ma solo un riassunto di alcuni serial killer, niente di piu' profondo.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">17/11/25</span>
+                    <a href="https://books.google.it/books?vid=9781529925531" class="book-title" target="_blank">Being Human</a>
+ di Lewis Dartnell
+
+                    <span class="book-comment"> aneddoti carini e in generale molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">15/11/25</span>
+                    <a href="https://books.google.it/books?vid=9788832858044" class="book-title" target="_blank">Se fossi stato al vostro posto</a>
+ di Marco Malvaldi
+
+                    <span class="book-comment"> molto interessante, ancora le logiche delle probabilita' condizionate e altre finezze mi sono ostili.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">10/11/25</span>
+                    <a href="https://books.google.it/books?vid=9788833892566" class="book-title" target="_blank">Mosca piu' balena</a>
+ di Valeria Parrella
+
+                    <span class="book-comment"> carino, raccolta di racconti gradevole.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">09/11/25</span>
+                    <a href="https://books.google.it/books?vid=9780300283235" class="book-title" target="_blank">A little book of language</a>
+ di David Crystal
+
+                    <span class="book-comment"> interessante, alcuni spunti nuovi.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">08/11/25</span>
+                    <a href="https://books.google.it/books?vid=9788804763291" class="book-title" target="_blank">Dall'alto i problemi sembrano piu' piccoli</a>
+ di Paolo Nespoli
+
+                    <span class="book-comment"> interessante, forse veramente la soluzione ai problemi del mondo sarebbe mandare tutti in orbita.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">06/11/25</span>
+                    <a href="https://books.google.it/books?vid=9788804737940" class="book-title" target="_blank">Noi siamo tecnologia</a>
+ di Massimo Temporelli
+
+                    <span class="book-comment"> tutto gia' letto a parte alcuni spunti interessanti.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">03/11/25</span>
+                    <a href="https://books.google.it/books?vid=9788833890418" class="book-title" target="_blank">Istruzioni per un funerale</a>
+ di David Means, A. Martinese
+
+                    <span class="book-comment"> a parte un paio di racconti proprio bruttino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">31/10/25</span>
+                    <a href="https://books.google.it/books?vid=9788806254957" class="book-title" target="_blank">Il giovane meraviglioso</a>
+ di Raphael Ebgi
+
+                    <span class="book-comment"> un peccato che menti cosi' brillanti sprechino tutta la loro vita dietro alle minchiate della religione.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">30/10/25</span>
+                    <a href="https://books.google.it/books?vid=9781422102824" class="book-title" target="_blank">Medici Effect</a>
+ di Frans Johansson
+
+                    <span class="book-comment"> prima parte interessante e poi una serie di ricette molto vaghe e di difficile applicazione.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">28/10/25</span>
+                    <a href="https://books.google.it/books?vid=9788806265175" class="book-title" target="_blank">L'amore mio non muore</a>
+ di Roberto Saviano
+
+                    <span class="book-comment"> Saviano non si smentisce, bellissimo libro, una rabbia tremenda.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">26/10/25</span>
+                    <a href="https://books.google.it/books?vid=9781524797096" class="book-title" target="_blank">The culture code</a>
+ di Daniel Coyle
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">20/10/25</span>
+                    <a href="https://books.google.it/books?vid=9780593352885" class="book-title" target="_blank">Different Kinds of Minds</a>
+ di Temple Grandin PhD, Ann D. Koffsky
+
+                    <span class="book-comment"> interessante, pero' e' la versione per ragazzi e quindi sospendo il giudizio.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">17/10/25</span>
+                    <a href="https://books.google.it/books?vid=9780008601119" class="book-title" target="_blank">Once upon a prime</a>
+ di Sarah Hart
+
+                    <span class="book-comment"> inizio molto interessante e poi velocemente diventato noioso e senza spunti particolari.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">08/10/25</span>
+                    <a href="https://books.google.it/books?vid=9788806243432" class="book-title" target="_blank">Gli squali</a>
+ di Giacomo Mazzariol
+
+                    <span class="book-comment"> carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">07/10/25</span>
+                    <span class="book-title no-link">Storie della tua vita</span>
+
+                    <span class="book-comment"> wow, una raccolta di racconti strepitosa, forse il punto piu' bello e' la battaglia mentale fra i due super geni.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">04/10/25</span>
+                    <a href="https://books.google.it/books?vid=9788806255442" class="book-title" target="_blank">Il canto del mare</a>
+ di Doreen Cunningham, Duccio Sacchi
+
+                    <span class="book-comment"> interrotta lettura a meta', una cacata pazzesca, ho proprio fatto un errore a comprarlo.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">01/10/25</span>
+                    <a href="https://books.google.it/books?vid=9788845934643" class="book-title" target="_blank">Steve Jobs non abita piu' qui</a>
+ di Michele Masneri
+
+                    <span class="book-comment">reportage colto sulla california del nord, interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">27/09/25</span>
+                    <a href="https://books.google.it/books?vid=9788858135815" class="book-title" target="_blank">La nazione delle piante</a>
+ di Stefano Mancuso
+
+                    <span class="book-comment">un paio di spunti molto interessanti.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">26/09/25</span>
+                    <a href="https://books.google.it/books?vid=9781473656857" class="book-title" target="_blank">Incredible Journeys</a>
+ di David Barrie
+
+                    <span class="book-comment"> interessante, molti aneddoti, anche se poco scorrevole.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">17/09/25</span>
+                    <a href="https://books.google.it/books?vid=9788858130179" class="book-title" target="_blank">Leonardo</a>
+ di Antonio Forcellino
+
+                    <span class="book-comment"> un'altra straordinaria biografia, molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">16/09/25</span>
+                    <a href="https://books.google.it/books?vid=9788807898228" class="book-title" target="_blank">Dammi mille baci</a>
+ di G. Valerio Catullo
+
+                    <span class="book-comment"> bello, forse dovrei riscoprire un po' di piu' la poesia.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">14/09/25</span>
+                    <a href="https://books.google.it/books?vid=9780241630181" class="book-title" target="_blank">May Contain Lies</a>
+ di Alex Edmans
+
+                    <span class="book-comment">molto interessante, come fare debunking di paper e articoli, e poi in generale come applicarlo in aziende e nella societa'.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">12/09/25</span>
+                    <a href="https://books.google.it/books?vid=9781529360684" class="book-title" target="_blank">Immune</a>
+ di Dettmer Philipp
+
+                    <span class="book-comment">molto interessante, un po' di risposte.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">08/09/25</span>
+                    <a href="https://books.google.it/books?vid=9788858106488" class="book-title" target="_blank">Dimmi come ti chiami e ti diro' perche'</a>
+ di Enzo Caffarelli
+
+                    <span class="book-comment">un sacco di aneddoti interessanti.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">06/09/25</span>
+                    <a href="https://books.google.it/books?vid=9788806262723" class="book-title" target="_blank">La tribu' degli alberi</a>
+ di Stefano Mancuso
+
+                    <span class="book-comment">carino, peccato averlo letto dopo il secondo.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">05/09/25</span>
+                    <a href="https://books.google.it/books?vid=9781805221708" class="book-title" target="_blank">Eat, poop, die</a>
+ di Joe Roman
+
+                    <span class="book-comment">interessante, non immaginavo proprio tutti questi studi.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">02/09/25</span>
+                    <a href="https://books.google.it/books?vid=9788804712213" class="book-title" target="_blank">Fa' che non sia matto</a>
+ di A. K. Benjamin, Carla Lazzari
+
+                    <span class="book-comment"> bof, che fosse strano lo si intuiva fin dall'inizio.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">31/08/25</span>
+                    <a href="https://books.google.it/books?vid=9780571374168" class="book-title" target="_blank">Why we remember</a>
+ di Charan Ranganath
+
+                    <span class="book-comment">molto interessante, anche se siamo lontani anni luce dall'aver capito come funziona davvero.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">27/08/25</span>
+                    <a href="https://books.google.it/books?vid=9781399804530" class="book-title" target="_blank">fluke</a>
+ di Brian Klaas
+
+                    <span class="book-comment"> niente di nuovo direi, da con qualche spunto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">25/08/25</span>
+                    <a href="https://books.google.it/books?vid=9788804672098" class="book-title" target="_blank">Che cos'e' la scienza</a>
+ di Carlo Rovelli
+
+                    <span class="book-comment">molto bello, cattura in pieno la mia visione.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">24/08/25</span>
+                    <a href="https://books.google.it/books?vid=9780141996325" class="book-title" target="_blank">Math without numbers</a>
+ di Milo Beckman
+
+                    <span class="book-comment">proprio carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">23/08/25</span>
+                    <span class="book-title no-link">M. La fine e il principio</span>
+
+                    <span class="book-comment"> bello, degna conclusione della pentalogia.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">22/08/25</span>
+                    <a href="https://books.google.it/books?vid=9781782112464" class="book-title" target="_blank">Incognito</a>
+ di David Eagleman
+
+                    <span class="book-comment">molti spunti interessanti, ma niente di particolarmente nuovo.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">18/08/25</span>
+                    <a href="https://books.google.it/books?vid=9788806118327" class="book-title" target="_blank">la valle del caos</a>
+ di Friedrich Dürrenmatt
+
+                    <span class="book-comment">veramente bizzarro.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">17/08/25</span>
+                    <a href="https://books.google.it/books?vid=9788807492549" class="book-title" target="_blank">Genesi</a>
+ di Guido Tonelli
+
+                    <span class="book-comment">di Tonelli: molto bello, chiaro e completo, come gli altri.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">16/08/25</span>
+                    <a href="https://books.google.it/books?vid=9788804376309" class="book-title" target="_blank">I racconti</a>
+ di Italo Calvino
+
+                    <span class="book-comment">di Tomasi di Lampedusa: interessante la parte iniziale e negli gli altri racconti.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">15/08/25</span>
+                    <a href="https://books.google.it/books?vid=9788828217473" class="book-title" target="_blank">Il canto delle sirene</a>
+ di Chris Hayes, Luca Bernardi
+
+                    <span class="book-comment">interessante lo spunto sull'attenzione come risorsa e a cascata i suoi effetti nella societa' capitalistica.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">12/08/25</span>
+                    <a href="https://books.google.it/books?vid=9788845939853" class="book-title" target="_blank">A spasso con il cane Luna</a>
+ di Giorgio Vallortigara
+
+                    <span class="book-comment">carino, lui e' sempre tosto.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">11/08/25</span>
+                    <a href="https://books.google.it/books?vid=9788862509107" class="book-title" target="_blank">Come siamo diventati stupidi</a>
+ di Armando Massarenti
+
+                    <span class="book-comment">provocatorio ma interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">10/08/25</span>
+                    <a href="https://books.google.it/books?vid=9788806240745" class="book-title" target="_blank">Il gioco degli dei</a>
+ di Paolo Maurensig
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">09/08/25</span>
+                    <span class="book-title no-link">Il mastino dei Baskerville</span>
+
+                    <span class="book-comment">devo dire che me l'aspettavo molto meglio, ho preferito tutti gli altri a questo.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">08/08/25</span>
+                    <span class="book-title no-link">Le memorie di Sherlock Holmes</span>
+
+                    <span class="book-comment">carine, concluse con la morte di Sherlock.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">07/08/25</span>
+                    <span class="book-title no-link">Le avventure di Sherlock Holmes</span>
+
+                    <span class="book-comment">carino, mi piace la logica deduttiva.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">06/08/25</span>
+                    <span class="book-title no-link">Il segno dei quattro</span>
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">05/08/25</span>
+                    <span class="book-title no-link">Uno studio in rosso</span>
+
+                    <span class="book-comment">avvincente.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">04/08/25</span>
+                    <a href="https://books.google.it/books?vid=9788842084761" class="book-title" target="_blank">Michelangelo, una vita inquieta</a>
+ di Antonio Forcellino
+
+                    <span class="book-comment">molto bello e interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">02/08/25</span>
+                    <a href="https://books.google.it/books?vid=9788807900310" class="book-title" target="_blank">Lettera al padre</a>
+ di Franz Kafka
+
+                    <span class="book-comment"> sarebbe interessante sentire anche l'altra campana.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">01/08/25</span>
+                    <a href="https://books.google.it/books?vid=9788804800477" class="book-title" target="_blank">Il canto della cellula</a>
+ di Siddhartha Mukherjee, Laura Serra
+
+                    <span class="book-comment">molto carino, non ne sapevo quasi nulla.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">28/07/25</span>
+                    <a href="https://books.google.it/books?vid=9780571354214" class="book-title" target="_blank">Beyond Measure</a>
+ di James Vincent
+
+                    <span class="book-comment"> prima metà un po' noiosa, poi recupera nel finale.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">21/07/25</span>
+                    <a href="https://books.google.it/books?vid=9781911214335" class="book-title" target="_blank">Nutshell</a>
+ di Ian Mcewan
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">20/07/25</span>
+                    <a href="https://books.google.it/books?vid=9781451659115" class="book-title" target="_blank">Civilized to Death</a>
+ di Christopher Ryan
+
+                    <span class="book-comment">illuminante, forse uno dei migliori libri mai letti, tira le somme di un sacco di pensieri e riflessioni.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">17/07/25</span>
+                    <a href="https://books.google.it/books?vid=9788804533337" class="book-title" target="_blank">Nexus</a>
+ di Mark Buchanan
+
+                    <span class="book-comment">molto molto interessante, come sempre da Harari.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">12/07/25</span>
+                    <a href="https://books.google.it/books?vid=9781780332635" class="book-title" target="_blank">optimism bias</a>
+ di Tali Sharot
+
+                    <span class="book-comment">interessante, ma niente di veramente nuovo.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">07/07/25</span>
+                    <a href="https://books.google.it/books?vid=9780571154913" class="book-title" target="_blank">The remains of the Day</a>
+ di Kazuo Ishiguro
+
+                    <span class="book-comment">proprio bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">04/07/25</span>
+                    <a href="https://books.google.it/books?vid=9788845939235" class="book-title" target="_blank">Narcotopia</a>
+ di Patrick Winn, Roberto Saviano, Svevo D'Onofrio
+
+                    <span class="book-comment"> super interessante, una storia di cui non sapevo nulla.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">30/06/25</span>
+                    <a href="https://books.google.it/books?vid=9780141993843" class="book-title" target="_blank">Fancy Bear Goes Phishing</a>
+ di Scott Shapiro
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">25/06/25</span>
+                    <a href="https://books.google.it/books?vid=9788845938801" class="book-title" target="_blank">L'uomo venuto dal futuro</a>
+ di Ananyo Bhattacharya, Luigi Civalleri
+
+                    <span class="book-comment">molto interessante, un sacco di cose che non sapevo su Von Neumann.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">20/06/25</span>
+                    <a href="https://books.google.it/books?vid=9788806219642" class="book-title" target="_blank">La storia</a>
+ di Elsa Morante
+
+                    <span class="book-comment">bello e triste.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">13/06/25</span>
+                    <a href="https://books.google.it/books?vid=9788807174865" class="book-title" target="_blank">L'eleganza del vuoto</a>
+ di Guido Tonelli
+
+                    <span class="book-comment">molto bello e interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">10/06/25</span>
+                    <a href="https://books.google.it/books?vid=9780593420218" class="book-title" target="_blank">Breath</a>
+ di James Nestor
+
+                    <span class="book-comment">molto molto interessante, provero' a metterle in pratica.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">06/06/25</span>
+                    <a href="https://books.google.it/books?vid=9791256240487" class="book-title" target="_blank">Joker scatenato</a>
+ di Guido Vitiello
+
+                    <span class="book-comment">interessante, ma solo a tratti.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">02/06/25</span>
+                    <a href="https://books.google.it/books?vid=9791256240180" class="book-title" target="_blank">Nelle strade di Teheran</a>
+ di Nila
+
+                    <span class="book-comment">molto molto carino, mannaggia a quelle merde di mullah e tutti gli altri.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">01/06/25</span>
+                    <a href="https://books.google.it/books?vid=9780307886859" class="book-title" target="_blank">Just Babies</a>
+ di Paul Bloom
+
+                    <span class="book-comment">interessante, titolo un po' misleading ma comunque tante info interessanti.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">26/05/25</span>
+                    <a href="https://books.google.it/books?vid=9788884902825" class="book-title" target="_blank">Tempo</a>
+ di Jacques Derrida, Anne Dufourmantelle
+
+                    <span class="book-comment">interessante anche se nulla di particolarmente nuovo.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">22/05/25</span>
+                    <a href="https://books.google.it/books?vid=9781847674272" class="book-title" target="_blank">Sum</a>
+ di David Eagleman
+
+                    <span class="book-comment"> racconti molto carini, raccolta notevole.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">20/05/25</span>
+                    <a href="https://books.google.it/books?vid=9781784705756" class="book-title" target="_blank">Work</a>
+ di Yanis Varoufakis
+
+                    <span class="book-comment">super prolisso e per buona parte fuori tema.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">08/05/25</span>
+                    <a href="https://books.google.it/books?vid=9788807900327" class="book-title" target="_blank">Per la pace perpetua</a>
+ di Immanuel Kant
+
+                    <span class="book-comment">interessante, sono secoli che ci si pensa ma ancora siamo lontani.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">06/05/25</span>
+                    <a href="https://books.google.it/books?vid=9788834619230" class="book-title" target="_blank">Avidita'</a>
+ di Elfriede Jelinek, Barbara Agnese
+
+                    <span class="book-comment">crudo, cinico e agghiacciante, pero' mi e' piaciuto nonostante la lettura faticosa.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">02/05/25</span>
+                    <a href="https://books.google.it/books?vid=9788845933219" class="book-title" target="_blank">Il libro degli esseri a malapena immaginabili</a>
+ di Caspar Henderson, R. Abbiati, M. Bocchiola
+
+                    <span class="book-comment">carino, qualche passo notevole.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">30/04/25</span>
+                    <a href="https://books.google.it/books?vid=9788806207885" class="book-title" target="_blank">Caduta Libera</a>
+ di Nicolai Lilin
+
+                    <span class="book-comment">bello anche questo, ma rovinato dal fatto che ho poi letto che sia fiction e non autobiografia come presentato.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">29/04/25</span>
+                    <a href="https://books.google.it/books?vid=9788806202569" class="book-title" target="_blank">Educazione Siberiana</a>
+ di Nicolai Lilin
+
+                    <span class="book-comment">bello, anche se in un mondo parallelo.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">26/04/25</span>
+                    <a href="https://books.google.it/books?vid=9788807892844" class="book-title" target="_blank">La scienza della persuasione</a>
+ di Sharot
+
+                    <span class="book-comment"> interessante, sulla stessa linea di Nudge.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">21/04/25</span>
+                    <a href="https://books.google.it/books?vid=9791222500508" class="book-title" target="_blank">Libera</a>
+ di Alessandra Ziniti
+
+                    <span class="book-comment">molto bello e quanta rabbia.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">20/04/25</span>
+                    <a href="https://books.google.it/books?vid=9788806262952" class="book-title" target="_blank">La versione degli alberi</a>
+ di Stefano Mancuso
+
+                    <span class="book-comment">proprio carino, speriamo scriva anche il seguito.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">18/04/25</span>
+                    <a href="https://books.google.it/books?vid=9788865165423" class="book-title" target="_blank">Nelle mani dei fondi</a>
+ di Alessandro Volpi
+
+                    <span class="book-comment"> interessante e inquietante allo stesso tempo.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">17/04/25</span>
+                    <a href="https://books.google.it/books?vid=9781398505452" class="book-title" target="_blank">Wasteland</a>
+ di Oliver Franklin-Wallis
+
+                    <span class="book-comment"> interessante e deprimente.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">07/04/25</span>
+                    <a href="https://books.google.it/books?vid=9788809033634" class="book-title" target="_blank">L'agente segreto</a>
+ di Joseph Conrad
+
+                    <span class="book-comment">carino, mi aspettavo qualcosa di completamente diverso.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">06/04/25</span>
+                    <a href="https://books.google.it/books?vid=9788806214524" class="book-title" target="_blank">Il mondo fino a ieri</a>
+ di Jared Diamond
+
+                    <span class="book-comment">interessante, ma niente di particolarmente nuovo.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">01/04/25</span>
+                    <a href="https://books.google.it/books?vid=9781472258229" class="book-title" target="_blank">Kindred</a>
+ di Octavia E. Butler
+
+                    <span class="book-comment">molto bello e agghiacciante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">30/03/25</span>
+                    <a href="https://books.google.it/books?vid=9788811684213" class="book-title" target="_blank">Musica per camaleonti</a>
+ di Truman Capote
+
+                    <span class="book-comment">che tipo quel Truman.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">29/03/25</span>
+                    <a href="https://books.google.it/books?vid=9788806222093" class="book-title" target="_blank">I miserabili</a>
+ di Victor Hugo
+
+                    <span class="book-comment">molto bello a parte le solite digressioni.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">18/03/25</span>
+                    <a href="https://books.google.it/books?vid=9788865165669" class="book-title" target="_blank">Le parole di mio padre</a>
+ di Amaka Ethel Nwokorie
+
+                    <span class="book-comment"> interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">15/03/25</span>
+                    <a href="https://books.google.it/books?vid=9788806255770" class="book-title" target="_blank">Tutti gli indirizzi perduti</a>
+ di Laura Imai Messina
+
+                    <span class="book-comment"> molto poetico.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">12/03/25</span>
+                    <a href="https://books.google.it/books?vid=9788815279323" class="book-title" target="_blank">I confini di Babele</a>
+ di Andrea Moro
+
+                    <span class="book-comment">molto interessante, devo trovare qualcos'altro su linguaggio e pensiero.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">01/03/25</span>
+                    <a href="https://books.google.it/books?vid=9788852066115" class="book-title" target="_blank">Mezzanotte in Messico</a>
+ di Alfredo Corchado
+
+                    <span class="book-comment"> interessante, ma tutta la parte biografica e' piuttosto irrilevante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">23/02/25</span>
+                    <a href="https://books.google.it/books?vid=9788811011897" class="book-title" target="_blank">L'onda che verra'</a>
+ di Mustafa Suleyman, Michael Bhaskar, Francesco Zago
+
+                    <span class="book-comment"> interessante, apocalittico e un po' prolisso.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">10/02/25</span>
+                    <a href="https://books.google.it/books?vid=9788893816571" class="book-title" target="_blank">La leggendaria storia di Heisenberg</a>
+ di Gabriella Greison
+
+                    <span class="book-comment"> una cagata pazzesca.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">09/02/25</span>
+                    <a href="https://books.google.it/books?vid=9791281858008" class="book-title" target="_blank">Contro la moda</a>
+ di Anouchka Grose
+
+                    <span class="book-comment">molto bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">04/02/25</span>
+                    <a href="https://books.google.it/books?vid=9791255480235" class="book-title" target="_blank">Il ladro di piume</a>
+ di Kirk Wallace Johnson
+
+                    <span class="book-comment">bello!</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">02/02/25</span>
+                    <a href="https://books.google.it/books?vid=9788830462540" class="book-title" target="_blank">Trappole alimentari</a>
+ di Stefano Vendrame
+
+                    <span class="book-comment">molto molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">28/01/25</span>
+                    <a href="https://books.google.it/books?vid=9788832857085" class="book-title" target="_blank">Il male per una buona causa</a>
+ di Isabella Merzagora
+
+                    <span class="book-comment">un po' troppo unversitario, ma nel finale si riprende.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">24/01/25</span>
+                    <a href="https://books.google.it/books?vid=9780393326550" class="book-title" target="_blank">Opening Skinners Box</a>
+ di Lauren Slater
+
+                    <span class="book-comment"> molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">17/01/25</span>
+                    <a href="https://books.google.it/books?vid=9780735222847" class="book-title" target="_blank">Irresistible</a>
+ di Adam Alter
+
+                    <span class="book-comment">interessante, anche se va un po' di palo in frasca.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">13/01/25</span>
+                    <a href="https://books.google.it/books?vid=9788830104976" class="book-title" target="_blank">M. L'ora del destino</a>
+ di Antonio Scurati
+
+                    <span class="book-comment">molto bello, come gli altri.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">11/01/25</span>
+                    <a href="https://books.google.it/books?vid=9788817184045" class="book-title" target="_blank">Il lato nobile</a>
+ di Jean-Marie Gustave Le Clézio, Maurizia Balmelli
+
+                    <span class="book-comment">bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">09/01/25</span>
+                    <a href="https://books.google.it/books?vid=9788854530744" class="book-title" target="_blank">Scintille</a>
+ di Ian Johnson, Annalisa Di Liddo, Loredana Serratore
+
+                    <span class="book-comment">interessante, forse un filo troppo lungo.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">03/01/25</span>
+                    <a href="https://books.google.it/books?vid=9791221215649" class="book-title" target="_blank">Cadere sette volte, rialzarsi otto</a>
+ di Flavio Parisi
+
+                    <span class="book-comment"> molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">02/01/25</span>
+                    <a href="https://books.google.it/books?vid=9788845939334" class="book-title" target="_blank">Greco cerca Greca</a>
+ di Friedrich Dürrenmatt, Margherita Belardetti
+
+                    <span class="book-comment">molto carino, con due finali!</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">01/01/25</span>
+                    <a href="https://books.google.it/books?vid=9788875788742" class="book-title" target="_blank">Breve storia del sangue</a>
+ di Rose George, Fabrizio Coppola
+
+                    <span class="book-comment"> molto interessante, un taglio molto femminista.</span>
+
+                </div>
+
+            </div>
+
+            <div class="year-section">
+                <h2 class="year-header">2024</h2>
+
+                <div class="book">
+                    <span class="book-date">28/12/24</span>
+                    <a href="https://books.google.it/books?vid=9781802060959" class="book-title" target="_blank">Why we read</a>
+ di AA.VV.
+
+                    <span class="book-comment">interessanti alcuni spunti, meno interessanti altri.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">25/12/24</span>
+                    <a href="https://books.google.it/books?vid=9788806237950" class="book-title" target="_blank">La stiva e l'abisso</a>
+ di Michele Mari
+
+                    <span class="book-comment">Mari non si smentisce, anche se a tratti e fin troppo aulico.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">20/12/24</span>
+                    <a href="https://books.google.it/books?vid=9791255410003" class="book-title" target="_blank">Atlante delle bugie</a>
+ di Francesco Petronella
+
+                    <span class="book-comment"> interessante, anche se ha perso la traccia iniziale.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">18/12/24</span>
+                    <a href="https://books.google.it/books?vid=9788867003259" class="book-title" target="_blank">La notte non fa paura</a>
+ di Kathryn Mannix, E. Craveri, M. O. Crosio
+
+                    <span class="book-comment">molto bello e delicato, una lettura importante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">14/12/24</span>
+                    <a href="https://books.google.it/books?vid=9788804772781" class="book-title" target="_blank">Ti con zero</a>
+ di Italo Calvino
+
+                    <span class="book-comment">interessante, ma non tutti i racconti ben riusciti.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">12/12/24</span>
+                    <a href="https://books.google.it/books?vid=9788885987357" class="book-title" target="_blank">In volo dal silenzio - la storia di Genie</a>
+ di Rymer Russ
+
+                    <span class="book-comment"> molto drammatico ed esplicativo della natura umana.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">10/12/24</span>
+                    <a href="https://books.google.it/books?vid=9788804593720" class="book-title" target="_blank">Donnie Brasco</a>
+ di Joseph Pistone
+
+                    <span class="book-comment">interessante, anche se Pistone soffre un po' del mito del mondo di strada.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">07/12/24</span>
+                    <a href="https://books.google.it/books?vid=9788845939020" class="book-title" target="_blank">Santi e bevitori</a>
+ di Lawrence Osborne, Mariagrazia Gini
+
+                    <span class="book-comment"> bof, un'agiografia dell'alcol che mi vede anni luce distante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">01/12/24</span>
+                    <a href="https://books.google.it/books?vid=9781529062335" class="book-title" target="_blank">This is going to hurt</a>
+ di Adam Kay
+
+                    <span class="book-comment">carino, e fa pensare.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">27/11/24</span>
+                    <a href="https://books.google.it/books?vid=9788845939228" class="book-title" target="_blank">Il cuore selvaggio della natura</a>
+ di David Quammen, Milena Zemira Ciccimarra
+
+                    <span class="book-comment">molto bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">20/11/24</span>
+                    <a href="https://books.google.it/books?vid=9791254501153" class="book-title" target="_blank">Quattro ipotesi sull'origine del linguaggio</a>
+ di Lorenzo Pinna
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">18/11/24</span>
+                    <a href="https://books.google.it/books?vid=9788856502435" class="book-title" target="_blank">Non e' vero, ma ci credo</a>
+ di J. Brockman, A. Arduini
+
+                    <span class="book-comment">qualche intervento interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">16/11/24</span>
+                    <a href="https://books.google.it/books?vid=9788832856873" class="book-title" target="_blank">Tutti i mondi possibili</a>
+ di Telmo Pievani
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">12/11/24</span>
+                    <a href="https://books.google.it/books?vid=9788807904592" class="book-title" target="_blank">L'uomo invisibile</a>
+ di Wells
+
+                    <span class="book-comment">carino, per nulla datato.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">10/11/24</span>
+                    <a href="https://books.google.it/books?vid=9788804731559" class="book-title" target="_blank">Di turno la notte di natale</a>
+ di Adam Kay, Gioia Sartori
+
+                    <span class="book-comment">leggero e carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">09/11/24</span>
+                    <a href="https://books.google.it/books?vid=9788854530713" class="book-title" target="_blank">Il paese di sogno</a>
+ di David Diop, Giovanni Zucca
+
+                    <span class="book-comment">bof, proprio niente di che.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">08/11/24</span>
+                    <a href="https://books.google.it/books?vid=9788833937663" class="book-title" target="_blank">Storia universale delle lingue</a>
+ di Harald Haarmann, Claudia Acher Marinelli
+
+                    <span class="book-comment">interessante, anche se molte parti fin troppo dettagliate!</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">27/10/24</span>
+                    <a href="https://books.google.it/books?vid=9788832856347" class="book-title" target="_blank">Misurare la storia</a>
+ di Sahra Talamo
+
+                    <span class="book-comment">interessante, fa il paio con quello sulla dendrocronologia.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">24/10/24</span>
+                    <a href="https://books.google.it/books?vid=9788845927867" class="book-title" target="_blank">L'avversario</a>
+ di Emmanuel Carrère
+
+                    <span class="book-comment">disturbante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">22/10/24</span>
+                    <a href="https://books.google.it/books?vid=9788894814347" class="book-title" target="_blank">Kim-Ji Young, nata nel 1982</a>
+ di Nam-Joo Cho, Filippo Bernardini
+
+                    <span class="book-comment">agghiacciante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">19/10/24</span>
+                    <a href="https://books.google.it/books?vid=9788832856552" class="book-title" target="_blank">Guardate meglio</a>
+ di Tali Sharot, Cass R. Sunstein, Virginio B. Sala
+
+                    <span class="book-comment">molto interessante e difficile da mettere in pratica.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">14/10/24</span>
+                    <a href="https://books.google.it/books?vid=9788804769194" class="book-title" target="_blank">L'oro e la patria</a>
+ di Federico Fubini
+
+                    <span class="book-comment">molto interessante, una storia sconosciuta e triste.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">12/10/24</span>
+                    <a href="https://books.google.it/books?vid=9788829712960" class="book-title" target="_blank">L'ordine nascosto</a>
+ di Merlin Sheldrake, Anita Taroni, Stefano Travagli
+
+                    <span class="book-comment">molto interessante, un mondo completamente sconosciuto.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">05/10/24</span>
+                    <a href="https://books.google.it/books?vid=9788804661375" class="book-title" target="_blank">La conoscenza necessaria</a>
+ di Lewis Dartnell, Doriana Comerlati
+
+                    <span class="book-comment">molto molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">28/09/24</span>
+                    <a href="https://books.google.it/books?vid=9788804789086" class="book-title" target="_blank">Il volto del male</a>
+ di Stefano Nazzi
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">25/09/24</span>
+                    <a href="https://books.google.it/books?vid=9788804536550" class="book-title" target="_blank">Zero Kill</a>
+ di Yassir Benmiloud, J. De Michelis
+
+                    <span class="book-comment">divertente e irriverente.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">24/09/24</span>
+                    <a href="https://books.google.it/books?vid=9788842820246" class="book-title" target="_blank">Una brevissima introduzione alla filosofia</a>
+ di Thomas Nagel
+
+                    <span class="book-comment"> super interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">21/09/24</span>
+                    <a href="https://books.google.it/books?vid=9788845922190" class="book-title" target="_blank">Regole di ingaggio</a>
+ di William Langewiesche, M. Codignola
+
+                    <span class="book-comment">interessante, meritava un approfondimento.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">19/09/24</span>
+                    <a href="https://books.google.it/books?vid=9788833942681" class="book-title" target="_blank">Vita in pugno</a>
+ di Rita Bullwinkel, Sara Reggiani
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">18/09/24</span>
+                    <a href="https://books.google.it/books?vid=9788823522077" class="book-title" target="_blank">Il mare</a>
+ di John Banville, Eva Kampmann
+
+                    <span class="book-comment">carino ma bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">17/09/24</span>
+                    <a href="https://books.google.it/books?vid=9788806237486" class="book-title" target="_blank">Il punto di Giano</a>
+ di Julian Barbour, Simonetta Frediani
+
+                    <span class="book-comment">bof, molto complesso e la seconda meta' l'ho letta molto velocemente.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">12/09/24</span>
+                    <a href="https://books.google.it/books?vid=9788807884436" class="book-title" target="_blank">Salute!</a>
+ di Richard H. Thaler, Cass R. Sunstein
+
+                    <span class="book-comment">bof, proprio deludente.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">08/09/24</span>
+                    <a href="https://books.google.it/books?vid=9780753553916" class="book-title" target="_blank">Think Again</a>
+ di Adam Grant
+
+                    <span class="book-comment">molto molto interessante, al pari degli altri suoi simili.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">06/09/24</span>
+                    <a href="https://books.google.it/books?vid=9791259671424" class="book-title" target="_blank">Magnificat</a>
+ di Sonia Aggio
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">04/09/24</span>
+                    <a href="https://books.google.it/books?vid=9788807904301" class="book-title" target="_blank">La guerra dei mondi</a>
+ di Herbert George Wells, Mirko Esposito
+
+                    <span class="book-comment">cariino, fa specie pensare a una guerra senza aviazione.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">02/09/24</span>
+                    <a href="https://books.google.it/books?vid=9788845935091" class="book-title" target="_blank">Le civette impossibili</a>
+ di Brian Phillips
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">31/08/24</span>
+                    <a href="https://books.google.it/books?vid=9788858861196" class="book-title" target="_blank">Discorso della servitu' volontaria</a>
+ di Étienne de la Boétie
+
+                    <span class="book-comment">bof: molto datato e superficiale.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">29/08/24</span>
+                    <a href="https://books.google.it/books?vid=9788806223229" class="book-title" target="_blank">Meridiano di sangue</a>
+ di Cormac McCarthy
+
+                    <span class="book-comment">bof, carino a tratti.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">26/08/24</span>
+                    <a href="https://books.google.it/books?vid=9788807821608" class="book-title" target="_blank">Lord Jim</a>
+ di Joseph Conrad, A. Ceni
+
+                    <span class="book-comment"> in realta  abbandonato.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">25/08/24</span>
+                    <a href="https://books.google.it/books?vid=9788876411953" class="book-title" target="_blank">I duellanti</a>
+ di Joseph Conrad
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">24/08/24</span>
+                    <a href="https://books.google.it/books?vid=9788804689973" class="book-title" target="_blank">I reietti dell'altro pianeta</a>
+ di Ursula K. Le Guin, R. Valla
+
+                    <span class="book-comment">interessante: piu' sociologico che fantascientifico.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">18/08/24</span>
+                    <a href="https://books.google.it/books?vid=9788845414138" class="book-title" target="_blank">Lo sguardo di Medusa</a>
+ di Natalie Haynes, Ginevra Lamberti
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">17/08/24</span>
+                    <a href="https://books.google.it/books?vid=9780141022048" class="book-title" target="_blank">Blink</a>
+ di Malcolm Gladwell
+
+                    <span class="book-comment">molto molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">16/08/24</span>
+                    <a href="https://books.google.it/books?vid=9788834617359" class="book-title" target="_blank">Filosofia e storia</a>
+ di Marco Santambrogio
+
+                    <span class="book-comment">molto interessnte.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">15/08/24</span>
+                    <a href="https://books.google.it/books?vid=9788828207368" class="book-title" target="_blank">Le impronte del signor Neanderthal</a>
+ di Giuseppe Remuzzi
+
+                    <span class="book-comment"> una cagata.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">12/08/24</span>
+                    <a href="https://books.google.it/books?vid=9788833937878" class="book-title" target="_blank">Gli anelli della vita</a>
+ di Valerie Trouet, Bianca Bertola
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">11/08/24</span>
+                    <a href="https://books.google.it/books?vid=9788804758501" class="book-title" target="_blank">The Labyrinth</a>
+ di Simon Stålenhag, Francesco Matteuzzi
+
+                    <span class="book-comment">molto carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">09/08/24</span>
+                    <a href="https://books.google.it/books?vid=9788804731894" class="book-title" target="_blank">Atlas Obscura</a>
+ di Joshua Foer, Dylan Thuras, Ella Morton
+
+                    <span class="book-comment">pazzesco.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">07/08/24</span>
+                    <a href="https://books.google.it/books?vid=9788806222635" class="book-title" target="_blank">Le meraviglie del possibile</a>
+
+                    <span class="book-comment">molto bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">03/08/24</span>
+                    <a href="https://books.google.it/books?vid=9788804786849" class="book-title" target="_blank">Piu' ci rinchiudono, piu' diventiamo forti</a>
+ di Narges Mohammadi, Manuela Faimali
+
+                    <span class="book-comment">bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">30/07/24</span>
+                    <a href="https://books.google.it/books?vid=9791259675125" class="book-title" target="_blank">La stanza dell'imperatore</a>
+ di Sonia Aggio
+
+                    <span class="book-comment">molto bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">28/07/24</span>
+                    <a href="https://books.google.it/books?vid=9788845926310" class="book-title" target="_blank">Storie proprio cosi'</a>
+ di Kipling Rudyard
+
+                    <span class="book-comment">molto carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">27/07/24</span>
+                    <a href="https://books.google.it/books?vid=9788833941363" class="book-title" target="_blank">E la quarta volta siamo annegati</a>
+ di Sally Hayden, Bianca Bertola
+
+                    <span class="book-comment"> bello e straziante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">22/07/24</span>
+                    <a href="https://books.google.it/books?vid=9781529345421" class="book-title" target="_blank">Brief Answers to the big questions</a>
+ di Stephen Hawking
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">21/07/24</span>
+                    <a href="https://books.google.it/books?vid=9788806264512" class="book-title" target="_blank">Locus desperatus</a>
+ di Michele Mari
+
+                    <span class="book-comment">Mari non si smentisce mai.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">19/07/24</span>
+                    <a href="https://books.google.it/books?vid=9788845938320" class="book-title" target="_blank">Maniac</a>
+ di Benjamín Labatut
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">18/07/24</span>
+                    <a href="https://books.google.it/books?vid=9788817092760" class="book-title" target="_blank">Longitudine</a>
+ di Dava Sobel
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">17/07/24</span>
+                    <a href="https://books.google.it/books?vid=9781526671851" class="book-title" target="_blank">The other pandemic</a>
+ di James Ball
+
+                    <span class="book-comment">molto interessante e inquietante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">12/07/24</span>
+                    <a href="https://books.google.it/books?vid=9788842825371" class="book-title" target="_blank">fisica della lavatrice</a>
+ di Chris Woodford, A. Panini
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">09/07/24</span>
+                    <a href="https://books.google.it/books?vid=9780141982243" class="book-title" target="_blank">Hiroshima</a>
+ di John Hersey
+
+                    <span class="book-comment">bello, forse un po' datato.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">08/07/24</span>
+                    <a href="https://books.google.it/books?vid=9788817016094" class="book-title" target="_blank">Notre-Dame de Paris</a>
+ di Victor Hugo
+
+                    <span class="book-comment">molto bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">05/07/24</span>
+                    <a href="https://books.google.it/books?vid=9788855446877" class="book-title" target="_blank">Pachinko, la moglie coreana</a>
+ di Min Jin Lee, Federica Merani
+
+                    <span class="book-comment">molto bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">03/07/24</span>
+                    <a href="https://books.google.it/books?vid=9788845938610" class="book-title" target="_blank">l'universo in una scatola</a>
+ di Andrew Pontzen
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">26/06/24</span>
+                    <a href="https://books.google.it/books?vid=9788806259587" class="book-title" target="_blank">Stella Maris</a>
+ di Cormac McCarthy, Maurizia Balmelli
+
+                    <span class="book-comment">strepitoso, uno dei piu' bei romanzi letti negli ultimi anni.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">24/06/24</span>
+                    <a href="https://books.google.it/books?vid=9788806259570" class="book-title" target="_blank">Il passeggero</a>
+ di Cormac McCarthy, Maurizia Balmelli
+
+                    <span class="book-comment">proprio bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">20/06/24</span>
+                    <a href="https://books.google.it/books?vid=9788845921650" class="book-title" target="_blank">Il bazar atomico</a>
+ di William Langewiesche, M. Codignola
+
+                    <span class="book-comment">molto interessante, un'introduzione a come costruirsi una bomba atomica.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">17/06/24</span>
+                    <a href="https://books.google.it/books?vid=9788858150290" class="book-title" target="_blank">Una lanterna nel buio</a>
+ di Bruno Cianci
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">14/06/24</span>
+                    <a href="https://books.google.it/books?vid=9791255100065" class="book-title" target="_blank">Aggiustare il mondo</a>
+ di Giovanni Ziccardi
+
+                    <span class="book-comment">molto molto interessante e di ispirazione.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">11/06/24</span>
+                    <a href="https://books.google.it/books?vid=9788845938580" class="book-title" target="_blank">T</a>
+ di Chetna Maroo, Gioia Guerzoni
+
+                    <span class="book-comment">triste ma carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">10/06/24</span>
+                    <a href="https://books.google.it/books?vid=9788856501001" class="book-title" target="_blank">L'equazione di Dio</a>
+ di Amir D. Aczel
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">08/06/24</span>
+                    <a href="https://books.google.it/books?vid=9788804725640" class="book-title" target="_blank">Silicio</a>
+ di Federico Faggin
+
+                    <span class="book-comment">interessante la parte autobiografica, molto meno quella finale.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">01/06/24</span>
+                    <a href="https://books.google.it/books?vid=9788865494165" class="book-title" target="_blank">Major Taylor, Il negro volante</a>
+ di Alberto Molinari, Stefano Pivato
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">31/05/24</span>
+                    <a href="https://books.google.it/books?vid=9781617298677" class="book-title" target="_blank">The programmer's brain</a>
+ di Felienne Hermans
+
+                    <span class="book-comment">molto molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">30/05/24</span>
+                    <a href="https://books.google.it/books?vid=9788845926471" class="book-title" target="_blank">Esecuzioni a distanza</a>
+ di Langerwiesche William
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">29/05/24</span>
+                    <a href="https://books.google.it/books?vid=9781472936103" class="book-title" target="_blank">Patient H69</a>
+ di Vanessa Potter
+
+                    <span class="book-comment">interessante la prima parte, bof il resto.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">25/05/24</span>
+                    <a href="https://books.google.it/books?vid=9788845919459" class="book-title" target="_blank">Terrore dal mare</a>
+ di William Langewiesche
+
+                    <span class="book-comment">molto molto bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">23/05/24</span>
+                    <a href="https://books.google.it/books?vid=9788858152447" class="book-title" target="_blank">Africa - Andata e ritorno</a>
+ di Medici con l'Africa Cuamm
+
+                    <span class="book-comment">a tratti veramente commovente.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">21/05/24</span>
+                    <a href="https://books.google.it/books?vid=9788832856316" class="book-title" target="_blank">Dieci lezioni sul male</a>
+ di Mauro Grimoldi
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">17/05/24</span>
+                    <a href="https://books.google.it/books?vid=9788845920714" class="book-title" target="_blank">La virata</a>
+ di William Langewiesche, M. Codignola
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">15/05/24</span>
+                    <a href="https://books.google.it/books?vid=9788860407719" class="book-title" target="_blank">Sangue, Ferro e Oro</a>
+ di Christian Wolmar, G. L. Giacone
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">07/05/24</span>
+                    <a href="https://books.google.it/books?vid=9788807035173" class="book-title" target="_blank">Le strane storie di Fukiage</a>
+ di Banana Yoshimoto, Gala Maria Follaco
+
+                    <span class="book-comment">bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">04/05/24</span>
+                    <a href="https://books.google.it/books?vid=9788893254786" class="book-title" target="_blank">Le guerre illegali della Nato</a>
+ di Daniele Ganser, Carlo Rovelli, Alessandro De Lachenal
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">27/04/24</span>
+                    <a href="https://books.google.it/books?vid=9788845938016" class="book-title" target="_blank">Un mondo senza confini</a>
+ di William Atkins, Francesco Francis
+
+                    <span class="book-comment">giudizio sospeso.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">24/04/24</span>
+                    <a href="https://books.google.it/books?vid=9788807017025" class="book-title" target="_blank">La misura del mondo</a>
+ di Daniel Kehlmann
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">21/04/24</span>
+                    <a href="https://books.google.it/books?vid=9788817182133" class="book-title" target="_blank">Prima del big bang</a>
+ di Gian Francesco Giudice
+
+                    <span class="book-comment"> bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">14/04/24</span>
+                    <a href="https://books.google.it/books?vid=9788881123773" class="book-title" target="_blank">Guerra</a>
+ di Gore Vidal
+
+                    <span class="book-comment">interessante ma prolisso.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">09/04/24</span>
+                    <a href="https://books.google.it/books?vid=9788865165089" class="book-title" target="_blank">Il costo della spedizione gratuita</a>
+ di Jake Alimahomed-Wilson, Ellen Reese, Federico Biolchi, Nicholas Foletti, Elisa Pantaleo
+
+                    <span class="book-comment">interessante ma ripetitivo.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">06/04/24</span>
+                    <a href="https://books.google.it/books?vid=9788854016934" class="book-title" target="_blank">Frontiera</a>
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">03/04/24</span>
+                    <a href="https://books.google.it/books?vid=9788842826316" class="book-title" target="_blank">8 secondi</a>
+ di Lisa Iotti
+
+                    <span class="book-comment">bof, lo stile mi ha profondamente irritato.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">01/04/24</span>
+                    <a href="https://books.google.it/books?vid=9788833941745" class="book-title" target="_blank">Eroica, folle e visionaria</a>
+ di Silvia Bencivelli
+
+                    <span class="book-comment"> molto bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">30/03/24</span>
+                    <a href="https://books.google.it/books?vid=9788865165126" class="book-title" target="_blank">PFAS</a>
+ di Giuseppe Ungherese
+
+                    <span class="book-comment">molto inquietante, molto molto.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">26/03/24</span>
+                    <span class="book-title no-link">L'eta' dello tsunami</span>
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">23/03/24</span>
+                    <span class="book-title no-link">L'amnistia Togliatti</span>
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">21/03/24</span>
+                    <a href="https://books.google.it/books?vid=9780008184902" class="book-title" target="_blank">City</a>
+ di Charlie English
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">19/03/24</span>
+                    <span class="book-title no-link">Il fabbricante di universi</span>
+
+                    <span class="book-comment">bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">18/03/24</span>
+                    <span class="book-title no-link">La sentinella</span>
+
+                    <span class="book-comment">molto carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">17/03/24</span>
+                    <span class="book-title no-link">Il popolo dell'autunno</span>
+
+                    <span class="book-comment">non proprio il mio genere, cmq carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">15/03/24</span>
+                    <span class="book-title no-link">Scorrete lacrime, disse il poliziotto</span>
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">14/03/24</span>
+                    <a href="https://books.google.it/books?vid=9788806149833" class="book-title" target="_blank">Lo strano caso del lago Vittoria</a>
+ di Tijs Goldschmidt, L. Pignatti
+
+                    <span class="book-comment">carino!</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">10/03/24</span>
+                    <a href="https://books.google.it/books?vid=9780738204420" class="book-title" target="_blank">Flatterland</a>
+ di Ian Stewart
+
+                    <span class="book-comment">carino ma me lo immaginavo diverso, piu' legato alle dimensioni che alla fisica.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">05/03/24</span>
+                    <a href="https://books.google.it/books?vid=9788833319605" class="book-title" target="_blank">Poteri illegittimi</a>
+ di Noam Chomsky, C. J. Polychroniou, Valentina Nicolì
+
+                    <span class="book-comment">il solito buon vecchio Chomsky.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">26/02/24</span>
+                    <a href="https://books.google.it/books?vid=9788842073048" class="book-title" target="_blank">Semplicita' insormontabili</a>
+ di Roberto Casati, Achille C. Varzi
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">24/02/24</span>
+                    <a href="https://books.google.it/books?vid=9788817039017" class="book-title" target="_blank">Dio e' un matematico</a>
+ di Mario Livio
+
+                    <span class="book-comment">interessante ma non il migliore di Livio.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">19/02/24</span>
+                    <a href="https://books.google.it/books?vid=9788804718420" class="book-title" target="_blank">Il secolo mobile</a>
+ di Gabriele Del Grande
+
+                    <span class="book-comment">molto molto bello e interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">14/02/24</span>
+                    <a href="https://books.google.it/books?vid=9788845919831" class="book-title" target="_blank">Adelphiana. Pubblicazione permanente (Vol. 4)</a>
+ di Anonimo
+
+                    <span class="book-comment">come gli altri interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">12/02/24</span>
+                    <a href="https://books.google.it/books?vid=9781846041242" class="book-title" target="_blank">Man's Search For Meaning</a>
+ di Viktor E Frankl
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">11/02/24</span>
+                    <a href="https://books.google.it/books?vid=9788830120068" class="book-title" target="_blank">Viaggiare nello spaziotempo: la scienza di interstellar</a>
+ di Kip Thorne, Christopher Nolan, Daniele Didero
+
+                    <span class="book-comment">molto molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">08/02/24</span>
+                    <a href="https://books.google.it/books?vid=9788870919233" class="book-title" target="_blank">La terra e' rotonda</a>
+ di Nicola Sofri, Jacopo Rosati
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">04/02/24</span>
+                    <a href="https://books.google.it/books?vid=9788845918698" class="book-title" target="_blank">Adelphiana. Pubblicazione permanente (Vol. 3)</a>
+ di aa.vv.
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">03/02/24</span>
+                    <a href="https://books.google.it/books?vid=9788870785005" class="book-title" target="_blank">La vasca di Archimede</a>
+ di Sven Ortoli, Nicolas Witkowski, M. Gregorio
+
+                    <span class="book-comment">bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">02/02/24</span>
+                    <a href="https://books.google.it/books?vid=9788842095002" class="book-title" target="_blank">La tirannia della scelta</a>
+ di Renata Salecl, F. Orsi
+
+                    <span class="book-comment">bof, piuttosto deluso.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">31/01/24</span>
+                    <a href="https://books.google.it/books?vid=9788828207665" class="book-title" target="_blank">La fuga di Enea</a>
+ di Antonio Scurati
+
+                    <span class="book-comment">spunti interessanti.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">30/01/24</span>
+                    <a href="https://books.google.it/books?vid=9780525537113" class="book-title" target="_blank">What If 2</a>
+ di Randall Munroe
+
+                    <span class="book-comment">sempre interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">29/01/24</span>
+                    <a href="https://books.google.it/books?vid=9788865596883" class="book-title" target="_blank">La scomparsa di Josef Mengele</a>
+ di Olivier Guez
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">27/01/24</span>
+                    <a href="https://books.google.it/books?vid=9788807887819" class="book-title" target="_blank">Niente asilo politico</a>
+ di Enrico Calamai
+
+                    <span class="book-comment">molto bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">24/01/24</span>
+                    <a href="https://books.google.it/books?vid=9788875787288" class="book-title" target="_blank">Mondi paralleli</a>
+ di Michio Kaku
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">15/01/24</span>
+                    <a href="https://books.google.it/books?vid=9788898038152" class="book-title" target="_blank">Il posto</a>
+ di Annie Ernaux
+
+                    <span class="book-comment">bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">14/01/24</span>
+                    <a href="https://books.google.it/books?vid=9788898038978" class="book-title" target="_blank">L'altra figlia</a>
+ di Annie Ernaux
+
+                    <span class="book-comment">mmh, giudizio sospeso.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">13/01/24</span>
+                    <a href="https://books.google.it/books?vid=9780593443378" class="book-title" target="_blank">How civil wars start</a>
+ di Barbara F. Walter
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">04/01/24</span>
+                    <a href="https://books.google.it/books?vid=9788806216276" class="book-title" target="_blank">Ignoranza</a>
+
+                    <span class="book-comment">bof.</span>
+
+                </div>
+
+            </div>
+
+            <div class="year-section">
+                <h2 class="year-header">2023</h2>
+
+                <div class="book">
+                    <span class="book-date">29/12/23</span>
+                    <a href="https://books.google.it/books?vid=9788828213314" class="book-title" target="_blank">Lo sapevo, qui, sopra il fiume Hao</a>
+ di Carlo Rovelli
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">28/12/23</span>
+                    <a href="https://books.google.it/books?vid=9788806253073" class="book-title" target="_blank">Fantasmagonia</a>
+ di Michele Mari
+
+                    <span class="book-comment">bello, ultimi due racconti un po' cosi', molto belli gli altri.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">26/12/23</span>
+                    <a href="https://books.google.it/books?vid=9788845268366" class="book-title" target="_blank">La carta e il territorio</a>
+ di Houellebecq Michel
+
+                    <span class="book-comment">carino, non il migliore di Houellebecq.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">22/12/23</span>
+                    <a href="https://books.google.it/books?vid=9788867832361" class="book-title" target="_blank">Storie straordinarie delle materie prime</a>
+ di Alessandro Giraudo, S. Prencipe
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">13/12/23</span>
+                    <a href="https://books.google.it/books?vid=9788804544111" class="book-title" target="_blank">La fame che abbiamo</a>
+ di Dave Eggers
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">09/12/23</span>
+                    <a href="https://books.google.it/books?vid=9788820039837" class="book-title" target="_blank">Oggi, per sempre</a>
+ di Deborah Wearing, T. Franzosi
+
+                    <span class="book-comment">filtrata un bel po' di fuffa, ma interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">07/12/23</span>
+                    <a href="https://books.google.it/books?vid=9788804769170" class="book-title" target="_blank">Prospettive cosmiche</a>
+ di Neil deGrasse Tyson, Tullio Cannillo
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">01/12/23</span>
+                    <a href="https://books.google.it/books?vid=9788804782360" class="book-title" target="_blank">Il grifone</a>
+ di Nicola Gratteri, Antonio Nicaso
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">29/11/23</span>
+                    <a href="https://books.google.it/books?vid=9788806257903" class="book-title" target="_blank">La russia in quattro criminali</a>
+ di Federico Varese
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">28/11/23</span>
+                    <a href="https://books.google.it/books?vid=9788856667547" class="book-title" target="_blank">Scolpitelo nel vostro cuore</a>
+ di Liliana Segre
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">27/11/23</span>
+                    <a href="https://books.google.it/books?vid=9788807034183" class="book-title" target="_blank">Il capitano e la gloria</a>
+ di Dave Eggers, N. Russell, V. Mantovani
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">26/11/23</span>
+                    <a href="https://books.google.it/books?vid=9788806240608" class="book-title" target="_blank">Istruzioni per diventare fascisti</a>
+ di Michela Murgia
+
+                    <span class="book-comment">bello, grande perdita la Murgia.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">25/11/23</span>
+                    <a href="https://books.google.it/books?vid=9788832854954" class="book-title" target="_blank">Come il cervello crea la coscienza</a>
+ di Anil Seth, Sara Parmigiani
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">12/11/23</span>
+                    <a href="https://books.google.it/books?vid=9788842830801" class="book-title" target="_blank">Storia sentimentale del telefono</a>
+ di Bruno Mastroianni
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">11/11/23</span>
+                    <a href="https://books.google.it/books?vid=9788804714965" class="book-title" target="_blank">Electric State</a>
+ di Simon Stålenhag
+
+                    <span class="book-comment">molto carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">09/11/23</span>
+                    <a href="https://books.google.it/books?vid=9788845277078" class="book-title" target="_blank">Tempo di seconda mano</a>
+ di Svetlana Aleksievic
+
+                    <span class="book-comment">molto bello e duro.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">03/11/23</span>
+                    <a href="https://books.google.it/books?vid=9791280845115" class="book-title" target="_blank">Wohpe</a>
+ di Salvatore Sanfilippo
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">02/11/23</span>
+                    <a href="https://books.google.it/books?vid=9788817191944" class="book-title" target="_blank">Guerre</a>
+ di Internazionale, Giovanni De Mauro
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">31/10/23</span>
+                    <a href="https://books.google.it/books?vid=9788807903748" class="book-title" target="_blank">La macchina del tempo</a>
+ di Herbert George Wells
+
+                    <span class="book-comment">carino, neanche troppo datato.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">30/10/23</span>
+                    <a href="https://books.google.it/books?vid=9788807903274" class="book-title" target="_blank">isola del dottor Moreau</a>
+ di H.G. Wells
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">29/10/23</span>
+                    <a href="https://books.google.it/books?vid=9788860307309" class="book-title" target="_blank">Imparare a rischiare</a>
+ di Gerd Gigerenzer
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">20/10/23</span>
+                    <a href="https://books.google.it/books?vid=9788845936555" class="book-title" target="_blank">Sentire e conoscere</a>
+ di Antonio Damasio, Isabella C. Blum
+
+                    <span class="book-comment">bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">15/10/23</span>
+                    <a href="https://books.google.it/books?vid=9788842826910" class="book-title" target="_blank">Sbagliando non si impara</a>
+ di Sara Garofalo
+
+                    <span class="book-comment"> molto carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">12/10/23</span>
+                    <a href="https://books.google.it/books?vid=9781524749019" class="book-title" target="_blank">Probable Impossibilities</a>
+ di Alan Lightman
+
+                    <span class="book-comment">bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">03/10/23</span>
+                    <a href="https://books.google.it/books?vid=9788838942303" class="book-title" target="_blank">I miei stupidi intenti</a>
+ di Bernardo Zannoni
+
+                    <span class="book-comment">molto carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">01/10/23</span>
+                    <a href="https://books.google.it/books?vid=9788804755210" class="book-title" target="_blank">California</a>
+ di Francesco Costa
+
+                    <span class="book-comment"> interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">28/09/23</span>
+                    <a href="https://books.google.it/books?vid=9788832855357" class="book-title" target="_blank">Superbatteri</a>
+ di Fabrizio Pregliasco, Paola Arosio
+
+                    <span class="book-comment">interessante ma un po' superficiale.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">21/09/23</span>
+                    <a href="https://books.google.it/books?vid=9788866327141" class="book-title" target="_blank">Preghiera per Cernobyl</a>
+ di Svetlana Aleksievic
+
+                    <span class="book-comment">molto bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">19/09/23</span>
+                    <a href="https://books.google.it/books?vid=9788845934773" class="book-title" target="_blank">Racconti brevi e straordinari</a>
+ di Jorge Luis Borges, Adolfo Bioy Casares, T. Scarano
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">17/09/23</span>
+                    <a href="https://books.google.it/books?vid=9788806253028" class="book-title" target="_blank">Suoni fragili e selvaggi</a>
+ di David George Haskell, Antonio Casto
+
+                    <span class="book-comment">prolisso ma spunti interessanti.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">11/09/23</span>
+                    <span class="book-title no-link">Flood</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">09/09/23</span>
+                    <a href="https://books.google.it/books?vid=9780571357628" class="book-title" target="_blank">The devil you know</a>
+ di Gwen Adshead, Eileen Horne
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">04/09/23</span>
+                    <a href="https://books.google.it/books?vid=9788845244575" class="book-title" target="_blank">Le particelle elementari</a>
+ di Michel Houellebecq
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">02/09/23</span>
+                    <a href="https://books.google.it/books?vid=9781472294128" class="book-title" target="_blank">Dopamine nation</a>
+ di Anna Lembke
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">29/08/23</span>
+                    <a href="https://books.google.it/books?vid=9788865590980" class="book-title" target="_blank">La simmetria dei desideri</a>
+ di Eshkol Nevo
+
+                    <span class="book-comment">mmhh, carino ma bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">27/08/23</span>
+                    <a href="https://books.google.it/books?vid=9780525539124" class="book-title" target="_blank">Skeleton Keys</a>
+ di Riley Black (Brian Switek)
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">24/08/23</span>
+                    <a href="https://books.google.it/books?vid=9788845254079" class="book-title" target="_blank">piattaforma</a>
+ di Michel Houellebecq
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">23/08/23</span>
+                    <a href="https://books.google.it/books?vid=9780307277459" class="book-title" target="_blank">Your inner fish</a>
+ di Neil Shubin
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">21/08/23</span>
+                    <a href="https://books.google.it/books?vid=9788807901577" class="book-title" target="_blank">Dei delitti e delle pene</a>
+ di Cesare Beccaria
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">20/08/23</span>
+                    <span class="book-title no-link">Neanche gli dei</span>
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">19/08/23</span>
+                    <a href="https://books.google.it/books?vid=9791254500156" class="book-title" target="_blank">Cervelli in guerra</a>
+ di Mari Fitzduff
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">16/08/23</span>
+                    <a href="https://books.google.it/books?vid=9788807034411" class="book-title" target="_blank">Cosa faresti se</a>
+ di Gabriele Romagnoli
+
+                    <span class="book-comment">molto carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">15/08/23</span>
+                    <a href="https://books.google.it/books?vid=9788845935077" class="book-title" target="_blank">Cose che succedono la notte</a>
+ di Peter Cameron, G. Oneto
+
+                    <span class="book-comment">bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">14/08/23</span>
+                    <a href="https://books.google.it/books?vid=9788815295637" class="book-title" target="_blank">L'eta', se esiste</a>
+ di Isabella Saggio
+
+                    <span class="book-comment">spunti interessanti.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">12/08/23</span>
+                    <a href="https://books.google.it/books?vid=9788845281242" class="book-title" target="_blank">gli ultimi testimoni</a>
+ di Svetlana Aleksievic
+
+                    <span class="book-comment">bello e toccante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">10/08/23</span>
+                    <a href="https://books.google.it/books?vid=9788836200405" class="book-title" target="_blank">La fabbrica delle scelte</a>
+ di Richard Shotton, Roberto Merlini
+
+                    <span class="book-comment">interessante ma bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">09/08/23</span>
+                    <a href="https://books.google.it/books?vid=9788817179348" class="book-title" target="_blank">In un volo di storni</a>
+ di Giorgio Parisi
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">07/08/23</span>
+                    <a href="https://books.google.it/books?vid=9788806233983" class="book-title" target="_blank">Non e' un paese per vecchi</a>
+ di Cormac McCarthy
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">05/08/23</span>
+                    <a href="https://books.google.it/books?vid=9788845932472" class="book-title" target="_blank">Brutti incontri al chiaro di luna</a>
+ di William Stanley Moss
+
+                    <span class="book-comment">proprio carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">04/08/23</span>
+                    <a href="https://books.google.it/books?vid=9788866327158" class="book-title" target="_blank">ragazzi di zinco</a>
+ di Svetlana Aleksievic
+
+                    <span class="book-comment">bello e agghiacciante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">03/08/23</span>
+                    <a href="https://books.google.it/books?vid=9788845265976" class="book-title" target="_blank">Il bambino che sognava la fine del mondo</a>
+ di Antonio Scurati
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">01/08/23</span>
+                    <a href="https://books.google.it/books?vid=9788828203865" class="book-title" target="_blank">Ci sono luoghi al mondo dove piu' che le regole e' importante la gentilezza</a>
+ di Carlo Rovelli
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">29/07/23</span>
+                    <a href="https://books.google.it/books?vid=9788806257286" class="book-title" target="_blank">Noi rifugiati</a>
+ di Hannah Arendt, Donatella Di Cesare
+
+                    <span class="book-comment">me lo immaginavo diverso.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">27/07/23</span>
+                    <span class="book-title no-link">Oltre il tempo</span>
+ di Heinlein Robert, Bufryd Algis, Aldani Lino
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">24/07/23</span>
+                    <a href="https://books.google.it/books?vid=9788854521391" class="book-title" target="_blank">Nel paese degli algoritmi</a>
+ di Aurelie Jean, Elena Dal Pra
+
+                    <span class="book-comment">a tratti interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">22/07/23</span>
+                    <a href="https://books.google.it/books?vid=9788806222567" class="book-title" target="_blank">Storia di Tonl</a>
+ di Mario Rigoni Stern
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">19/07/23</span>
+                    <a href="https://books.google.it/books?vid=9788842827269" class="book-title" target="_blank">Storia del tempo</a>
+ di Joseph Mazur, G. Malafarina
+
+                    <span class="book-comment">interessante ma me lo immaginavo diverso.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">17/07/23</span>
+                    <a href="https://books.google.it/books?vid=9788858822456" class="book-title" target="_blank">Solo bagaglio a mano</a>
+ di Gabriele Romagnoli
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">16/07/23</span>
+                    <span class="book-title no-link">Gli dei del fiume</span>
+ di Farmer Philip Jose'
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">15/07/23</span>
+                    <span class="book-title no-link">Il labirinito magico</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">12/07/23</span>
+                    <span class="book-title no-link">Il grande disegno</span>
+ di Farmer Philip Jose'
+
+                    <span class="book-comment">comincia a diventare un po' prolisso.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">07/07/23</span>
+                    <span class="book-title no-link">Alle sorgenti del fiume</span>
+ di Farmer Philip Jose'
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">05/07/23</span>
+                    <span class="book-title no-link">Il fiume della vita</span>
+ di Farmer Philip Jose'
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">03/07/23</span>
+                    <a href="https://books.google.it/books?vid=9788807897719" class="book-title" target="_blank">La tirannia del merito</a>
+ di Sandel
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">28/06/23</span>
+                    <a href="https://books.google.it/books?vid=9788811007715" class="book-title" target="_blank">Eleanor oliphant sta benissimo</a>
+ di Gail Honeyman, Stefano Beretta
+
+                    <span class="book-comment">molto bello e commovente.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">26/06/23</span>
+                    <a href="https://books.google.it/books?vid=9788832855289" class="book-title" target="_blank">Le sfide di Marte</a>
+ di Paolo Ferri
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">22/06/23</span>
+                    <a href="https://books.google.it/books?vid=9780241351581" class="book-title" target="_blank">Range</a>
+ di Malcolm Gladwell
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">16/06/23</span>
+                    <a href="https://books.google.it/books?vid=9788806258146" class="book-title" target="_blank">I numeri non mentono</a>
+ di Vaclav Smil, Giacomo Manconi
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">12/06/23</span>
+                    <a href="https://books.google.it/books?vid=9788832855029" class="book-title" target="_blank">Perche' l'intelligenza umana batte ancora gli algoritmi</a>
+ di Gerd Gigerenzer, Riccardo Mazzeo
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">07/06/23</span>
+                    <a href="https://books.google.it/books?vid=9788845936173" class="book-title" target="_blank">Operatori e cose</a>
+ di Barbara O'Brien, Michael Maccoby, Maria Baiocchi, Anna Tagliavini
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">03/06/23</span>
+                    <a href="https://books.google.it/books?vid=9788874529834" class="book-title" target="_blank">Perche' oggi non e' possibile una rivoluzione</a>
+ di Byung-Chul Han, Simone Aglan-Buttazzi
+
+                    <span class="book-comment">spunti interessanti, ma bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">27/05/23</span>
+                    <a href="https://books.google.it/books?vid=9788806245702" class="book-title" target="_blank">Se i gatti scomparissero dal mondo</a>
+ di Genki Kawamura, A. Specchio
+
+                    <span class="book-comment">bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">26/05/23</span>
+                    <a href="https://books.google.it/books?vid=9780141991511" class="book-title" target="_blank">Shape</a>
+ di Jordan Ellenberg
+
+                    <span class="book-comment">carino, ma poco di nuovo.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">21/05/23</span>
+                    <a href="https://books.google.it/books?vid=9788842807414" class="book-title" target="_blank">Perche' il vetro e' trasparente</a>
+ di Bellur S. Chandrasekhar, G. Rigamonti
+
+                    <span class="book-comment">complesso ma molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">14/05/23</span>
+                    <a href="https://books.google.it/books?vid=9788832850796" class="book-title" target="_blank">Chi e' dunque l'altro</a>
+ di Marc Augé
+
+                    <span class="book-comment">bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">09/05/23</span>
+                    <a href="https://books.google.it/books?vid=9788883063411" class="book-title" target="_blank">L'ultima tentazione</a>
+ di Nikos Kazantzakis, Gilda Tentorio
+
+                    <span class="book-comment">bello!</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">04/05/23</span>
+                    <a href="https://books.google.it/books?vid=9788845932601" class="book-title" target="_blank">Il professore e il pazzo</a>
+ di Simon Winchester
+
+                    <span class="book-comment"> bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">02/05/23</span>
+                    <a href="https://books.google.it/books?vid=9788811003496" class="book-title" target="_blank">La sola colpa di essere nati</a>
+ di Gherardo Colombo, Liliana Segre
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">01/05/23</span>
+                    <a href="https://books.google.it/books?vid=9788806236113" class="book-title" target="_blank">Il mondo senza di noi</a>
+ di Alan Weisman, N. Gobetti
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">22/04/23</span>
+                    <a href="https://books.google.it/books?vid=9788832850147" class="book-title" target="_blank">Filosofia del futuro</a>
+ di Samuele Iaquinto, Giuliano Torrengo
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">17/04/23</span>
+                    <a href="https://books.google.it/books?vid=9788845902871" class="book-title" target="_blank">La terra che sussurra</a>
+ di Gerald Durrell
+
+                    <span class="book-comment">bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">14/04/23</span>
+                    <a href="https://books.google.it/books?vid=9788834741948" class="book-title" target="_blank">Dune</a>
+ di Frank Herbert
+
+                    <span class="book-comment">molto bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">11/04/23</span>
+                    <a href="https://books.google.it/books?vid=9788875781217" class="book-title" target="_blank">I have landed</a>
+ di Stephen Jay Gould, T. Pievani, I. C. Blum
+
+                    <span class="book-comment">bello ma prolisso.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">07/04/23</span>
+                    <a href="https://books.google.it/books?vid=9788883063299" class="book-title" target="_blank">Zorba il greco</a>
+ di Nikos Kazantzakis, N. Crocetti
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">04/04/23</span>
+                    <a href="https://books.google.it/books?vid=9788858847725" class="book-title" target="_blank">Il calamaro gigante</a>
+ di Fabio Genovesi
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">02/04/23</span>
+                    <a href="https://books.google.it/books?vid=9788807881060" class="book-title" target="_blank">Autostop con Buddha</a>
+ di Will Ferguson
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">27/03/23</span>
+                    <a href="https://books.google.it/books?vid=9788845937538" class="book-title" target="_blank">Buchi Bianchi</a>
+ di Carlo Rovelli
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">24/03/23</span>
+                    <a href="https://books.google.it/books?vid=9788845934094" class="book-title" target="_blank">Il dono oscuro</a>
+ di John M. Hull, F. Pacifico
+
+                    <span class="book-comment">molto bello e interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">22/03/23</span>
+                    <a href="https://books.google.it/books?vid=9788817075947" class="book-title" target="_blank">Cantonate</a>
+ di Mario Livio, S. Galli
+
+                    <span class="book-comment">bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">16/03/23</span>
+                    <a href="https://books.google.it/books?vid=9788845930270" class="book-title" target="_blank">La prigione della fede</a>
+ di Lawrence Wright, M. Z. Ciccimarra
+
+                    <span class="book-comment">molto bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">13/03/23</span>
+                    <a href="https://books.google.it/books?vid=9788834605301" class="book-title" target="_blank">L'anomalia</a>
+ di Hervé Le Tellier
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">12/03/23</span>
+                    <a href="https://books.google.it/books?vid=9788845932151" class="book-title" target="_blank">La vita segreta</a>
+ di Andrew O'Hagan
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">09/03/23</span>
+                    <a href="https://books.google.it/books?vid=9788856502442" class="book-title" target="_blank">Pendulum</a>
+ di Amir D. Aczel, G. Rigamonti
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">06/03/23</span>
+                    <a href="https://books.google.it/books?vid=9788834612477" class="book-title" target="_blank">Mare della Tranquillita'</a>
+ di Emily St. John Mandel, Elena Malanga
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">05/03/23</span>
+                    <a href="https://books.google.it/books?vid=9788829706976" class="book-title" target="_blank">Le regole del contagio</a>
+ di Adam Kucharski, Francesco Peri
+
+                    <span class="book-comment">interessante anche se un po' di palo in frasca.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">01/03/23</span>
+                    <a href="https://books.google.it/books?vid=9780141988870" class="book-title" target="_blank">The Uninhabitable Earth</a>
+ di David Wallace-Wells
+
+                    <span class="book-comment">molto interessante e desolante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">28/02/23</span>
+                    <a href="https://books.google.it/books?vid=9788845936210" class="book-title" target="_blank">Metazoa</a>
+ di Peter Godfrey-Smith, Isabella C. Blum
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">24/02/23</span>
+                    <a href="https://books.google.it/books?vid=9788872260302" class="book-title" target="_blank">Imparare</a>
+ di Raffaele Bella
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">21/02/23</span>
+                    <a href="https://books.google.it/books?vid=9780008534448" class="book-title" target="_blank">Noise</a>
+ di Daniel Kahneman, Olivier Sibony, Cass R. Sunstein
+
+                    <span class="book-comment">di kahneman, bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">20/02/23</span>
+                    <a href="https://books.google.it/books?vid=9788807035166" class="book-title" target="_blank">La vedova</a>
+ di José Saramago, Rita Desti
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">16/02/23</span>
+                    <a href="https://books.google.it/books?vid=9788832961973" class="book-title" target="_blank">I demoni di Salvini</a>
+ di Claudio Gatti
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">11/02/23</span>
+                    <a href="https://books.google.it/books?vid=9788845928703" class="book-title" target="_blank">La Panne</a>
+ di Friedrich Dürrenmatt
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">09/02/23</span>
+                    <a href="https://books.google.it/books?vid=9788807034947" class="book-title" target="_blank">I miei giorni alla libreria Morisaki</a>
+ di Satoshi Yagisawa, Gala Maria Follaco
+
+                    <span class="book-comment">molto leggero.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">08/02/23</span>
+                    <a href="https://books.google.it/books?vid=9788806247195" class="book-title" target="_blank">Lo sappiamo quando lo vediamo</a>
+ di Richard Masland, Silvio Ferraresi
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">02/02/23</span>
+                    <a href="https://books.google.it/books?vid=9788833937847" class="book-title" target="_blank">Dialoghi sul male</a>
+ di Luigi Zoja
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">01/02/23</span>
+                    <a href="https://books.google.it/books?vid=9788845936753" class="book-title" target="_blank">La brigata dei bastardi</a>
+ di Sam Kean, Luigi Civalleri
+
+                    <span class="book-comment">proprio bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">30/01/23</span>
+                    <a href="https://books.google.it/books?vid=9788899270049" class="book-title" target="_blank">Viva l'Italia!</a>
+ di Roberta Cairoli
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">28/01/23</span>
+                    <a href="https://books.google.it/books?vid=9788898983353" class="book-title" target="_blank">De l'infinito universo e mondi</a>
+ di Sebastiano Vassalli
+
+                    <span class="book-comment">strano.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">24/01/23</span>
+                    <a href="https://books.google.it/books?vid=9788838929106" class="book-title" target="_blank">Solaris</a>
+ di Stanislaw Lem
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">23/01/23</span>
+                    <a href="https://books.google.it/books?vid=9788833575605" class="book-title" target="_blank">Codice 612</a>
+ di Michel Bussi, Alberto Bracci Testasecca
+
+                    <span class="book-comment">bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">22/01/23</span>
+                    <a href="https://books.google.it/books?vid=9788845935510" class="book-title" target="_blank">Cotto</a>
+ di Michael Pollan, Isabella C. Blum
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">15/01/23</span>
+                    <a href="https://books.google.it/books?vid=9788868332501" class="book-title" target="_blank">Biscotti e radici quadrate</a>
+ di Eugenia Cheng
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">10/01/23</span>
+                    <a href="https://books.google.it/books?vid=9788806216979" class="book-title" target="_blank">La fine del mondo e il paese delle meraviglie</a>
+ di Haruki Murakami
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">08/01/23</span>
+                    <a href="https://books.google.it/books?vid=9788806247768" class="book-title" target="_blank">Origini</a>
+ di Sean Carroll, A. Gewurz Daniele
+
+                    <span class="book-comment">molto bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">06/01/23</span>
+                    <a href="https://books.google.it/books?vid=9788804749028" class="book-title" target="_blank">Voli di Fantasia</a>
+ di Richard Dawkins
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">02/01/23</span>
+                    <a href="https://books.google.it/books?vid=9788807884436" class="book-title" target="_blank">Nudge</a>
+ di Richard H. Thaler, Cass R. Sunstein
+
+                    <span class="book-comment">e poi a nanna alla 1/2.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">01/01/23</span>
+                    <a href="https://books.google.it/books?vid=9788806252854" class="book-title" target="_blank">Tokyo tutto l'anno</a>
+ di Laura Imai Messina, Igort
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+            </div>
+
+            <div class="year-section">
+                <h2 class="year-header">2022</h2>
+
+                <div class="book">
+                    <span class="book-date">30/12/22</span>
+                    <a href="https://books.google.it/books?vid=9788845935473" class="book-title" target="_blank">Perche' non eravamo pronti</a>
+ di David Quammen, Milena Zemira Ciccimarra
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">29/12/22</span>
+                    <a href="https://books.google.it/books?vid=9788845937484" class="book-title" target="_blank">Le gemelle che non parlavano</a>
+ di Marjorie Wallace, Gabriella Luzzani
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">28/12/22</span>
+                    <a href="https://books.google.it/books?vid=9788804682714" class="book-title" target="_blank">L'uomo che credeva di essere morto</a>
+ di Vilayanur S. Ramachandran, Laura Serra
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">24/12/22</span>
+                    <a href="https://books.google.it/books?vid=9788807893636" class="book-title" target="_blank">Zeitoun</a>
+ di Eggers
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">23/12/22</span>
+                    <a href="https://books.google.it/books?vid=9788845937101" class="book-title" target="_blank">Per questo</a>
+ di Anna Politkovskaja, Claudia Zonghetti
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">15/12/22</span>
+                    <a href="https://books.google.it/books?vid=9788845931086" class="book-title" target="_blank">Storie dal mondo nuovo</a>
+ di Daniele Rielli
+
+                    <span class="book-comment">molto interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">14/12/22</span>
+                    <a href="https://books.google.it/books?vid=9788817096003" class="book-title" target="_blank">Curiosi</a>
+ di Mario Livio, Daniele Didero
+
+                    <span class="book-comment">bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">11/12/22</span>
+                    <a href="https://books.google.it/books?vid=9788807035159" class="book-title" target="_blank">The every</a>
+ di Dave Eggers, Francesco Pacifico
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">07/12/22</span>
+                    <a href="https://books.google.it/books?vid=9788868338084" class="book-title" target="_blank">La matematica dell'infinito</a>
+ di Eugenia Cheng
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">02/12/22</span>
+                    <a href="https://books.google.it/books?vid=9788845937262" class="book-title" target="_blank">Il richiamo del corno</a>
+ di Sarban, Roberto Colajanni
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">30/11/22</span>
+                    <a href="https://books.google.it/books?vid=9788860445803" class="book-title" target="_blank">Se la strada potesse parlare</a>
+ di James Baldwin
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">28/11/22</span>
+                    <a href="https://books.google.it/books?vid=9788807174087" class="book-title" target="_blank">Lettera alla tribu' bianca</a>
+ di Alex Zanotelli
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">27/11/22</span>
+                    <a href="https://books.google.it/books?vid=9788817162388" class="book-title" target="_blank">Houston, abbiamo un problema</a>
+ di Filippo Bonaventura, Lorenzo Colombo, Matteo Miluzio
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">25/11/22</span>
+                    <a href="https://books.google.it/books?vid=9788817020435" class="book-title" target="_blank">Grand River</a>
+ di Wu Ming
+
+                    <span class="book-comment">bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">24/11/22</span>
+                    <a href="https://books.google.it/books?vid=9788806230517" class="book-title" target="_blank">Notti in bianco, baci a colazione</a>
+ di Matteo Bussola
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">23/11/22</span>
+                    <a href="https://books.google.it/books?vid=9788845937392" class="book-title" target="_blank">Senza Respiro</a>
+ di David Quammen, Zemira Ciccimarra Milena
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">19/11/22</span>
+                    <a href="https://books.google.it/books?vid=9788809977860" class="book-title" target="_blank">Cuore puro</a>
+ di Roberto Saviano
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">18/11/22</span>
+                    <a href="https://books.google.it/books?vid=9788842826828" class="book-title" target="_blank">Il libro delle nuvole</a>
+ di Vincenzo Levizzani
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">15/11/22</span>
+                    <a href="https://books.google.it/books?vid=9788811671619" class="book-title" target="_blank">L'incarico</a>
+ di Friedrich Dürrenmatt
+
+                    <span class="book-comment">strano ma carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">14/11/22</span>
+                    <a href="https://books.google.it/books?vid=9780141033570" class="book-title" target="_blank">Thinking Fast and Slow</a>
+ di Daniel Kahneman
+
+                    <span class="book-comment"> fondamentale.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">31/10/22</span>
+                    <a href="https://books.google.it/books?vid=9788804741176" class="book-title" target="_blank">confini invisibili</a>
+ di Barbara Gallavotti
+
+                    <span class="book-comment">bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">26/10/22</span>
+                    <a href="https://books.google.it/books?vid=9788858440919" class="book-title" target="_blank">UFO 78</a>
+ di Wu Ming,
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">22/10/22</span>
+                    <a href="https://books.google.it/books?vid=9788830104969" class="book-title" target="_blank">Gli ultimi giorni dell'Europa</a>
+ di Antonio Scurati
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">20/10/22</span>
+                    <a href="https://books.google.it/books?vid=9788806247768" class="book-title" target="_blank">Sulle origini della vita, del significato e dell'universo</a>
+ di Sean Carroll, A. Gewurz Daniele
+
+                    <span class="book-comment">bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">29/09/22</span>
+                    <a href="https://books.google.it/books?vid=9788830106956" class="book-title" target="_blank">Passoscuro</a>
+ di Massimo Ammaniti
+
+                    <span class="book-comment">bof.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">24/09/22</span>
+                    <span class="book-title no-link">La seconda fondazione</span>
+
+                    <span class="book-comment">bello.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">19/09/22</span>
+                    <a href="https://books.google.it/books?vid=9788815280084" class="book-title" target="_blank">Caos</a>
+ di Marco Malvaldi, Stefano Marmi
+
+                    <span class="book-comment">interessante.</span>
+
+                </div>
+
+                <div class="book">
+                    <span class="book-date">17/09/22</span>
+                    <a href="https://books.google.it/books?vid=9781474603874" class="book-title" target="_blank">Admissions</a>
+ di Henry Marsh
+
+                    <span class="book-comment">carino.</span>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
