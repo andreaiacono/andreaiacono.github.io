@@ -250,8 +250,8 @@
             <br><br>
             <span class="accent2">q</span> è il punto dove la retta <em>interseca</em> l'asse Y (ordinate).
             <br>
-            <div>q > 0 → sopra l'origine
-            <div>q < 0 → sotto</div>
+            <div>q > 0 → sopra l'origine</div>
+            <div>q < 0 → sotto l'origine</div>
         </div>
     </div>
 </div>
@@ -385,10 +385,13 @@
             ctx.fill();
             ctx.restore();
             // label
-            ctx.font = 'bold 13px Nunito';
-            ctx.fillStyle = '#4ecdc4';
-            ctx.textAlign = 'left';
-            ctx.fillText('q = ' + fmt(q), CX + 12, qPixY - 6);
+            // ctx.font = 'bold 13px Nunito';
+            // ctx.fillStyle = '#ffd166';
+            // ctx.textAlign = 'left';
+            // ctx.fillText('m = ' + fmt(m), CX + 12, qPixY - 6);
+            // ctx.font = '13px Nunito';
+            // ctx.fillStyle = '#4ecdc4';
+            // ctx.fillText('q = ' + fmt(q), CX + 12, qPixY + 12);
         }
 
         // Dot at x-intercept (if m != 0)
