@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometria Analitica — y = mx + q</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #fdf6ee;
+            --card: #ffffff;
+            --accent: #ff6b35;
+            --accent2: #4ecdc4;
+            --line-color: #e63946;
+            --grid: #e8dfd4;
+            --axis: #2d2d2d;
+            --text: #2d2d2d;
+            --muted: #9b8ea0;
+            --shadow: 0 8px 32px rgba(0,0,0,0.10);
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 28px 16px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        header h1 {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--accent);
+            line-height: 1.1;
+        }
+
+        header p {
+            margin-top: 6px;
+            color: var(--muted);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .formula-banner {
+            background: var(--axis);
+            color: #fff;
+            border-radius: 14px;
+            font-family: 'Caveat', cursive;
+            font-size: 2rem;
+            letter-spacing: 1px;
+            min-height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .formula-banner span.m-val { color: #ffd166; }
+        .formula-banner span.q-val { color: var(--accent2); }
+
+        .main-layout {
+            display: flex;
+            gap: 24px;
+            width: 100%;
+            max-width: 960px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .canvas-wrap {
+            background: var(--card);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            padding: 12px;
+            flex: 1 1 400px;
+            max-width: 580px;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .controls {
+            background: var(--card);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            padding: 28px 24px;
+            flex: 0 0 260px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .slider-group label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 800;
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        .slider-group label .var-name {
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+        }
+
+        .slider-group label .var-name.m { color: #e6aa00; }
+        .slider-group label .var-name.q { color: var(--accent2); }
+
+        .slider-group label .val-badge {
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            background: var(--bg);
+            border-radius: 8px;
+            width: 64px;
+            height: 52px;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 99px;
+            outline: none;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        input[type=range].m-slider {
+            background: linear-gradient(to right, var(--bg) 0%, #ffd166 100%);
+            accent-color: #e6aa00;
+        }
+
+        input[type=range].q-slider {
+            background: linear-gradient(to right, var(--bg) 0%, var(--accent2) 100%);
+            accent-color: var(--accent2);
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.15s;
+        }
+
+        input[type=range].m-slider::-webkit-slider-thumb { background: #e6aa00; }
+        input[type=range].q-slider::-webkit-slider-thumb { background: var(--accent2); }
+
+        input[type=range]:hover::-webkit-slider-thumb { transform: scale(1.2); }
+
+        .hint-box {
+            background: #fff8f0;
+            border-left: 4px solid var(--accent);
+            border-radius: 0 12px 12px 0;
+            padding: 12px 14px;
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.55;
+        }
+
+        .hint-box strong { color: var(--accent); }
+        .hint-box .accent2 { color: var(--accent2); font-weight: 700; }
+
+        /* Fraction rendering */
+        .frac {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            vertical-align: middle;
+            font-size: 0.82em;
+            line-height: 1.1;
+            margin: 0 2px;
+        }
+        .frac .num { border-bottom: 2px solid currentColor; padding-bottom: 1px; min-width: 14px; text-align: center; }
+        .frac .den { padding-top: 1px; min-width: 14px; text-align: center; }
+
+        /* Fraction in formula banner — bigger */
+        .formula-banner .frac { font-size: 0.75em; }
+        .formula-banner .frac .num { border-bottom-width: 2px; }
+
+        /* Fraction in val-badge */
+        .val-badge .frac { font-size: 1em; }
+
+        @media (max-width: 600px) {
+            .controls { flex: 1 1 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>📐 Geometria Analitica</h1>
+    <p>Sposta i cursori e osserva come cambia la retta!</p>
+</header>
+
+<div class="main-layout">
+    <div class="canvas-wrap">
+        <canvas id="plane" width="560" height="560"></canvas>
+    </div>
+
+    <div class="controls">
+        <div class="formula-banner" id="formula">y = <span class="m-val">1</span>x + <span class="q-val">0</span></div>
+        <div class="slider-group">
+            <label>
+                <span class="var-name m">m &nbsp;</span>
+                <span>Coefficiente Angolare</span>
+                <span class="val-badge" id="mVal">1</span>
+            </label>
+            <input type="range" class="m-slider" id="mSlider" min="-5" max="5" step="0.1" value="1">
+        </div>
+
+        <div class="slider-group">
+            <label>
+                <span class="var-name q">q</span>
+                <span>Termine Noto</span>
+                <span class="val-badge" id="qVal">0</span>
+            </label>
+            <input type="range" class="q-slider" id="qSlider" min="-8" max="8" step="0.1" value="0">
+        </div>
+
+        <div class="hint-box">
+            <strong>m</strong> controlla quanto è <em>inclinata</em> la retta.<br>
+            <div>m > 0 → sale</div>
+            <div>m < 0 → scende </div>
+            <div>m = 0 → orizzontale</div>
+            <br><br>
+            <span class="accent2">q</span> è il punto dove la retta <em>interseca</em> l'asse Y (ordinate).
+            <br>
+            <div>q > 0 → sopra l'origine
+            <div>q < 0 → sotto</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const canvas = document.getElementById('plane');
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height;
+    const CX = W / 2, CY = H / 2;
+    const SCALE = 45; // pixels per unit
+    const RANGE = Math.ceil(CX / SCALE) + 1;
+
+    const mSlider = document.getElementById('mSlider');
+    const qSlider = document.getElementById('qSlider');
+
+    // --- Fraction utilities ---
+    function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while(b) { [a,b] = [b, a % b]; } return a; }
+
+    // Convert a decimal (multiples of 0.1) to {num, den} reduced fraction
+    function toFrac(v) {
+        // represent v as integer / 10, then reduce
+        let num = Math.round(v * 10);
+        let den = 10;
+        const g = gcd(Math.abs(num), den);
+        return { num: num / g, den: den / g };
+    }
+
+    // Return plain text representation (for canvas labels)
+    function fracText(v) {
+        const {num, den} = toFrac(v);
+        if (den === 1) return String(num);
+        return num + '/' + den;
+    }
+
+    // Return HTML representation with stacked fraction
+    function fracHTML(v, colorClass) {
+        const {num, den} = toFrac(v);
+        if (den === 1) return `<span class="${colorClass}">${num}</span>`;
+        return `<span class="${colorClass} frac"><span class="num">${num}</span><span class="den">${den}</span></span>`;
+    }
+
+    // Plain text for canvas (no HTML)
+    function fmt(v) {
+        return fracText(v);
+    }
+
+    function draw(m, q) {
+        ctx.clearRect(0, 0, W, H);
+
+        // Background
+        ctx.fillStyle = '#fdf6ee';
+        ctx.fillRect(0, 0, W, H);
+
+        // Grid
+        ctx.strokeStyle = '#e8dfd4';
+        ctx.lineWidth = 1;
+        for (let i = -RANGE; i <= RANGE; i++) {
+            let x = CX + i * SCALE;
+            ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+            let y = CY + i * SCALE;
+            ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+        }
+
+        // Axes
+        ctx.strokeStyle = '#2d2d2d';
+        ctx.lineWidth = 2.5;
+        ctx.beginPath(); ctx.moveTo(0, CY); ctx.lineTo(W, CY); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(CX, 0); ctx.lineTo(CX, H); ctx.stroke();
+
+        // Arrows
+        ctx.fillStyle = '#2d2d2d';
+        // X arrow
+        ctx.beginPath(); ctx.moveTo(W-4, CY); ctx.lineTo(W-16, CY-7); ctx.lineTo(W-16, CY+7); ctx.fill();
+        // Y arrow
+        ctx.beginPath(); ctx.moveTo(CX, 4); ctx.lineTo(CX-7, 16); ctx.lineTo(CX+7, 16); ctx.fill();
+
+        // Axis labels
+        ctx.font = 'bold 16px Nunito, sans-serif';
+        ctx.fillStyle = '#2d2d2d';
+        ctx.fillText('x', W - 12, CY - 10);
+        ctx.fillText('y', CX + 10, 14);
+
+        // Ticks & numbers
+        ctx.font = '13px Nunito, sans-serif';
+        ctx.fillStyle = '#888';
+        ctx.lineWidth = 1.5;
+        for (let i = -RANGE; i <= RANGE; i++) {
+            if (i === 0) continue;
+            // X ticks
+            let tx = CX + i * SCALE;
+            ctx.strokeStyle = '#2d2d2d';
+            ctx.beginPath(); ctx.moveTo(tx, CY - 5); ctx.lineTo(tx, CY + 5); ctx.stroke();
+            ctx.textAlign = 'center';
+            ctx.fillText(i, tx, CY + 18);
+            // Y ticks
+            let ty = CY - i * SCALE;
+            ctx.beginPath(); ctx.moveTo(CX - 5, ty); ctx.lineTo(CX + 5, ty); ctx.stroke();
+            ctx.textAlign = 'right';
+            ctx.fillText(i, CX - 9, ty + 5);
+        }
+        ctx.fillText('0', CX - 9, CY + 18);
+
+        // The line y = mx + q
+        ctx.save();
+        ctx.strokeStyle = '#e63946';
+        ctx.lineWidth = 3;
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+        ctx.shadowColor = 'rgba(230,57,70,0.35)';
+        ctx.shadowBlur = 10;
+        ctx.beginPath();
+        // Compute x at canvas left/right edges
+        let x1 = -CX / SCALE;
+        let x2 = (W - CX) / SCALE;
+        let y1 = m * x1 + q;
+        let y2 = m * x2 + q;
+        ctx.moveTo(0, CY - y1 * SCALE);
+        ctx.lineTo(W, CY - y2 * SCALE);
+        ctx.stroke();
+        ctx.restore();
+
+        // Dot at y-intercept (q)
+        let qPixY = CY - q * SCALE;
+        if (qPixY >= 0 && qPixY <= H) {
+            ctx.save();
+            ctx.fillStyle = '#4ecdc4';
+            ctx.shadowColor = 'rgba(78,205,196,0.5)';
+            ctx.shadowBlur = 10;
+            ctx.beginPath();
+            ctx.arc(CX, qPixY, 7, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+            // label
+            ctx.font = 'bold 13px Nunito';
+            ctx.fillStyle = '#4ecdc4';
+            ctx.textAlign = 'left';
+            ctx.fillText('q = ' + fmt(q), CX + 12, qPixY - 6);
+        }
+
+        // Dot at x-intercept (if m != 0)
+        if (Math.abs(m) > 0.01) {
+            let xi = -q / m;
+            let xiPix = CX + xi * SCALE;
+            if (xiPix >= 0 && xiPix <= W) {
+                ctx.save();
+                ctx.fillStyle = '#ffd166';
+                ctx.shadowColor = 'rgba(255,209,102,0.5)';
+                ctx.shadowBlur = 10;
+                ctx.beginPath();
+                ctx.arc(xiPix, CY, 7, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+    }
+
+    function update() {
+        const m = parseFloat(mSlider.value);
+        const q = parseFloat(qSlider.value);
+
+        // Badges show decimal
+        const decFmt = v => { let s = v.toFixed(1); return s.endsWith('.0') ? s.slice(0,-2) : s; };
+        document.getElementById('mVal').textContent = decFmt(m);
+        document.getElementById('qVal').textContent = decFmt(q);
+
+        // Build formula banner
+        const banner = document.getElementById('formula');
+        const mFrac = toFrac(m);
+        const qFrac = toFrac(q);
+        const absQ = Math.abs(q);
+        const {num: absNum, den: absDen} = toFrac(absQ);
+
+        // m coefficient part
+        let mPart = '';
+        if (mFrac.num === 0) {
+            // y = q
+        } else if (mFrac.den === 1) {
+            const mv = mFrac.num;
+            mPart = mv === 1 ? '' : mv === -1 ? '-' : `<span class="m-val">${mv}</span>`;
+        } else {
+            mPart = `<span class="m-val frac"><span class="num">${mFrac.num}</span><span class="den">${mFrac.den}</span></span>`;
+        }
+
+        // q part
+        let qPart = absDen === 1
+            ? `<span class="q-val">${absNum}</span>`
+            : `<span class="q-val frac"><span class="num">${absNum}</span><span class="den">${absDen}</span></span>`;
+
+        const qSign = q >= 0 ? '+' : '−';
+
+        if (mFrac.num === 0) {
+            banner.innerHTML = `y = ${qPart}`;
+        } else if (qFrac.num === 0) {
+            banner.innerHTML = `y = ${mPart}x`;
+        } else {
+            banner.innerHTML = `y = ${mPart}x ${qSign} ${qPart}`;
+        }
+
+        // Update slider gradient fill
+        let mPct = ((m - (-5)) / 10) * 100;
+        let qPct = ((q - (-8)) / 16) * 100;
+        mSlider.style.background = `linear-gradient(to right, #ffd166 0%, #ffd166 ${mPct}%, #f0e6d0 ${mPct}%, #f0e6d0 100%)`;
+        qSlider.style.background = `linear-gradient(to right, #4ecdc4 0%, #4ecdc4 ${qPct}%, #f0e6d0 ${qPct}%, #f0e6d0 100%)`;
+
+        draw(m, q);
+    }
+
+    mSlider.addEventListener('input', update);
+    qSlider.addEventListener('input', update);
+
+    update();
+</script>
+</body>
+</html>
