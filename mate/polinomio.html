@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometria Analitica — Polinomi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #fdf6ee;
+            --card: #ffffff;
+            --accent: #ff6b35;
+            --accent2: #4ecdc4;
+            --line-color: #e63946;
+            --grid: #e8dfd4;
+            --axis: #2d2d2d;
+            --text: #2d2d2d;
+            --muted: #9b8ea0;
+            --shadow: 0 8px 32px rgba(0,0,0,0.10);
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 28px 16px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        header h1 {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--accent);
+            line-height: 1.1;
+        }
+
+        header p {
+            margin-top: 6px;
+            color: var(--muted);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .formula-banner {
+            background: var(--axis);
+            color: #fff;
+            border-radius: 14px;
+            font-family: 'Caveat', cursive;
+            font-size: 1.6rem;
+            letter-spacing: 1px;
+            min-height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 4px;
+            padding: 12px 24px;
+            width: 100%;
+            max-width: 960px;
+            margin-bottom: 24px;
+        }
+
+        .main-layout {
+            display: flex;
+            gap: 24px;
+            width: 100%;
+            max-width: 960px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .canvas-wrap {
+            background: var(--card);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            padding: 12px;
+            flex: 1 1 400px;
+            max-width: 580px;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .controls {
+            background: var(--card);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            padding: 28px 24px;
+            flex: 0 0 280px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .slider-group label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 800;
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+        }
+
+        .slider-group label .var-name {
+            font-family: 'Caveat', cursive;
+            font-size: 1.3rem;
+            min-width: 40px;
+        }
+
+        .slider-group label .val-badge {
+            font-family: 'Caveat', cursive;
+            font-size: 1.3rem;
+            background: var(--bg);
+            border-radius: 8px;
+            width: 56px;
+            height: 40px;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 99px;
+            outline: none;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.15s;
+        }
+
+        input[type=range]:hover::-webkit-slider-thumb { transform: scale(1.2); }
+
+        .coeff-colors { --c0: #4ecdc4; --c1: #e6aa00; --c2: #e63946; --c3: #7b68ee; --c4: #ff6b35; --c5: #2ecc71; }
+
+        .s0 { accent-color: var(--c0); }
+        .s1 { accent-color: var(--c1); }
+        .s2 { accent-color: var(--c2); }
+        .s3 { accent-color: var(--c3); }
+        .s4 { accent-color: var(--c4); }
+        .s5 { accent-color: var(--c5); }
+
+        .s0::-webkit-slider-thumb { background: var(--c0); }
+        .s1::-webkit-slider-thumb { background: var(--c1); }
+        .s2::-webkit-slider-thumb { background: var(--c2); }
+        .s3::-webkit-slider-thumb { background: var(--c3); }
+        .s4::-webkit-slider-thumb { background: var(--c4); }
+        .s5::-webkit-slider-thumb { background: var(--c5); }
+
+        .var-c0 { color: var(--c0); }
+        .var-c1 { color: var(--c1); }
+        .var-c2 { color: var(--c2); }
+        .var-c3 { color: var(--c3); }
+        .var-c4 { color: var(--c4); }
+        .var-c5 { color: var(--c5); }
+
+        .hint-box {
+            background: #fff8f0;
+            border-left: 4px solid var(--accent);
+            border-radius: 0 12px 12px 0;
+            padding: 12px 14px;
+            font-size: 0.85rem;
+            color: var(--muted);
+            line-height: 1.55;
+        }
+
+        .hint-box strong { color: var(--accent); }
+
+        .reset-btn {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 16px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .reset-btn:hover { background: #e55a28; }
+
+        .degree-label {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            background: var(--bg);
+            color: var(--accent);
+        }
+
+        sup { font-size: 0.7em; vertical-align: super; }
+
+        @media (max-width: 600px) {
+            .controls { flex: 1 1 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>📐 I Polinomi</h1>
+    <p>Sposta i cursori e osserva come cambia la curva!</p>
+    <a href="index.html" style="color: var(--muted); font-size: 0.9rem;">← Torna all'indice</a>
+</header>
+
+<div class="formula-banner" id="formula">
+    y = x
+</div>
+
+<div class="main-layout coeff-colors">
+    <div class="canvas-wrap">
+        <canvas id="plane" width="560" height="560"></canvas>
+    </div>
+
+    <div class="controls">
+        <div class="slider-group">
+            <label>
+                <span class="var-name var-c5">a₅</span>
+                <span>x⁵</span>
+                <span class="val-badge" id="v5">0</span>
+            </label>
+            <input type="range" class="s5" id="s5" min="-2" max="2" step="0.1" value="0">
+        </div>
+
+        <div class="slider-group">
+            <label>
+                <span class="var-name var-c4">a₄</span>
+                <span>x⁴</span>
+                <span class="val-badge" id="v4">0</span>
+            </label>
+            <input type="range" class="s4" id="s4" min="-2" max="2" step="0.1" value="0">
+        </div>
+
+        <div class="slider-group">
+            <label>
+                <span class="var-name var-c3">a₃</span>
+                <span>x³</span>
+                <span class="val-badge" id="v3">0</span>
+            </label>
+            <input type="range" class="s3" id="s3" min="-2" max="2" step="0.1" value="0">
+        </div>
+
+        <div class="slider-group">
+            <label>
+                <span class="var-name var-c2">a₂</span>
+                <span>x²</span>
+                <span class="val-badge" id="v2">0</span>
+            </label>
+            <input type="range" class="s2" id="s2" min="-3" max="3" step="0.1" value="0">
+        </div>
+
+        <div class="slider-group">
+            <label>
+                <span class="var-name var-c1">a₁</span>
+                <span>x</span>
+                <span class="val-badge" id="v1">1</span>
+            </label>
+            <input type="range" class="s1" id="s1" min="-5" max="5" step="0.1" value="1">
+        </div>
+
+        <div class="slider-group">
+            <label>
+                <span class="var-name var-c0">a₀</span>
+                <span>termine noto</span>
+                <span class="val-badge" id="v0">0</span>
+            </label>
+            <input type="range" class="s0" id="s0" min="-5" max="5" step="0.1" value="0">
+        </div>
+
+        <div id="degreeLabel" class="degree-label">Grado 1 — Retta</div>
+
+        <button class="reset-btn" id="resetBtn">Azzera tutto</button>
+
+        <div class="hint-box">
+            <strong>Grado</strong> = esponente massimo con coefficiente ≠ 0.<br><br>
+            <div>Grado 1 → retta</div>
+            <div>Grado 2 → parabola (1 curva)</div>
+            <div>Grado 3 → cubica (1 flesso)</div>
+            <div>Grado 4 → fino a 2 curve</div>
+            <div>Grado 5 → fino a 2 flessi</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const canvas = document.getElementById('plane');
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height;
+    const CX = W / 2, CY = H / 2;
+    const SCALE = 45;
+    const RANGE = Math.ceil(CX / SCALE) + 1;
+
+    const sliders = [];
+    const badges = [];
+    for (let i = 0; i <= 5; i++) {
+        sliders[i] = document.getElementById('s' + i);
+        badges[i] = document.getElementById('v' + i);
+    }
+
+    const colors = ['#4ecdc4', '#e6aa00', '#e63946', '#7b68ee', '#ff6b35', '#2ecc71'];
+    const degreeNames = ['', 'Retta', 'Parabola', 'Cubica', 'Quartica', 'Quintica'];
+
+    function evalPoly(coeffs, x) {
+        let y = 0;
+        for (let i = 0; i <= 5; i++) {
+            y += coeffs[i] * Math.pow(x, i);
+        }
+        return y;
+    }
+
+    function getDegree(coeffs) {
+        for (let i = 5; i >= 1; i--) {
+            if (Math.abs(coeffs[i]) > 0.001) return i;
+        }
+        return 0;
+    }
+
+    function draw(coeffs) {
+        ctx.clearRect(0, 0, W, H);
+
+        // Background
+        ctx.fillStyle = '#fdf6ee';
+        ctx.fillRect(0, 0, W, H);
+
+        // Grid
+        ctx.strokeStyle = '#e8dfd4';
+        ctx.lineWidth = 1;
+        for (let i = -RANGE; i <= RANGE; i++) {
+            let x = CX + i * SCALE;
+            ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+            let y = CY + i * SCALE;
+            ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+        }
+
+        // Axes
+        ctx.strokeStyle = '#2d2d2d';
+        ctx.lineWidth = 2.5;
+        ctx.beginPath(); ctx.moveTo(0, CY); ctx.lineTo(W, CY); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(CX, 0); ctx.lineTo(CX, H); ctx.stroke();
+
+        // Arrows
+        ctx.fillStyle = '#2d2d2d';
+        ctx.beginPath(); ctx.moveTo(W-4, CY); ctx.lineTo(W-16, CY-7); ctx.lineTo(W-16, CY+7); ctx.fill();
+        ctx.beginPath(); ctx.moveTo(CX, 4); ctx.lineTo(CX-7, 16); ctx.lineTo(CX+7, 16); ctx.fill();
+
+        // Axis labels
+        ctx.font = 'bold 16px Nunito, sans-serif';
+        ctx.fillStyle = '#2d2d2d';
+        ctx.fillText('x', W - 12, CY - 10);
+        ctx.fillText('y', CX + 10, 14);
+
+        // Ticks & numbers
+        ctx.font = '13px Nunito, sans-serif';
+        ctx.fillStyle = '#888';
+        ctx.lineWidth = 1.5;
+        for (let i = -RANGE; i <= RANGE; i++) {
+            if (i === 0) continue;
+            let tx = CX + i * SCALE;
+            ctx.strokeStyle = '#2d2d2d';
+            ctx.beginPath(); ctx.moveTo(tx, CY - 5); ctx.lineTo(tx, CY + 5); ctx.stroke();
+            ctx.textAlign = 'center';
+            ctx.fillText(i, tx, CY + 18);
+            let ty = CY - i * SCALE;
+            ctx.beginPath(); ctx.moveTo(CX - 5, ty); ctx.lineTo(CX + 5, ty); ctx.stroke();
+            ctx.textAlign = 'right';
+            ctx.fillText(i, CX - 9, ty + 5);
+        }
+        ctx.fillText('0', CX - 9, CY + 18);
+
+        // Draw the polynomial curve
+        ctx.save();
+        ctx.strokeStyle = '#e63946';
+        ctx.lineWidth = 3;
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+        ctx.shadowColor = 'rgba(230,57,70,0.35)';
+        ctx.shadowBlur = 10;
+
+        ctx.beginPath();
+        const step = 1 / SCALE; // one pixel in x-units
+        const xMin = -CX / SCALE;
+        const xMax = (W - CX) / SCALE;
+        let first = true;
+
+        for (let px = 0; px <= W; px++) {
+            const x = xMin + px * step;
+            const y = evalPoly(coeffs, x);
+            const sy = CY - y * SCALE;
+
+            // Clip to canvas with some margin
+            if (sy < -500 || sy > H + 500) {
+                first = true;
+                continue;
+            }
+
+            if (first) {
+                ctx.moveTo(px, sy);
+                first = false;
+            } else {
+                ctx.lineTo(px, sy);
+            }
+        }
+        ctx.stroke();
+        ctx.restore();
+
+        // Dot at y-intercept (a0)
+        const yIntercept = coeffs[0];
+        const yPixY = CY - yIntercept * SCALE;
+        if (yPixY >= 0 && yPixY <= H) {
+            ctx.save();
+            ctx.fillStyle = '#4ecdc4';
+            ctx.shadowColor = 'rgba(78,205,196,0.5)';
+            ctx.shadowBlur = 10;
+            ctx.beginPath();
+            ctx.arc(CX, yPixY, 7, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+        }
+    }
+
+    function buildFormula(coeffs) {
+        const superscripts = ['', '', '²', '³', '⁴', '⁵'];
+        const parts = [];
+
+        for (let i = 5; i >= 0; i--) {
+            const c = coeffs[i];
+            if (Math.abs(c) < 0.001) continue;
+
+            const absC = Math.abs(c);
+            const sign = c >= 0 ? '+' : '−';
+            const colorClass = `var-c${i}`;
+
+            let term = '';
+            if (i === 0) {
+                term = `<span class="${colorClass}">${absC.toFixed(1).replace(/\.0$/, '')}</span>`;
+            } else if (Math.abs(absC - 1) < 0.001) {
+                term = `x${superscripts[i]}`;
+            } else {
+                term = `<span class="${colorClass}">${absC.toFixed(1).replace(/\.0$/, '')}</span>x${superscripts[i]}`;
+            }
+
+            if (parts.length === 0) {
+                parts.push(c < 0 ? `−${term}` : term);
+            } else {
+                parts.push(`${sign} ${term}`);
+            }
+        }
+
+        return parts.length === 0 ? '0' : parts.join(' ');
+    }
+
+    function update() {
+        const coeffs = [];
+        for (let i = 0; i <= 5; i++) {
+            coeffs[i] = parseFloat(sliders[i].value);
+            const v = coeffs[i];
+            const s = v.toFixed(1);
+            badges[i].textContent = s.endsWith('.0') ? s.slice(0, -2) : s;
+
+            // Slider fill
+            const min = parseFloat(sliders[i].min);
+            const max = parseFloat(sliders[i].max);
+            const pct = ((v - min) / (max - min)) * 100;
+            const col = colors[i];
+            sliders[i].style.background = `linear-gradient(to right, ${col} 0%, ${col} ${pct}%, #f0e6d0 ${pct}%, #f0e6d0 100%)`;
+        }
+
+        // Formula
+        document.getElementById('formula').innerHTML = 'y = ' + buildFormula(coeffs);
+
+        // Degree label
+        const deg = getDegree(coeffs);
+        const name = degreeNames[deg] || '';
+        document.getElementById('degreeLabel').textContent =
+            deg === 0 ? 'Costante' : `Grado ${deg} — ${name}`;
+
+        draw(coeffs);
+    }
+
+    for (let i = 0; i <= 5; i++) {
+        sliders[i].addEventListener('input', update);
+    }
+
+    document.getElementById('resetBtn').addEventListener('click', () => {
+        for (let i = 0; i <= 5; i++) {
+            sliders[i].value = i === 1 ? 1 : 0;
+        }
+        update();
+    });
+
+    update();
+</script>
+</body>
+</html>

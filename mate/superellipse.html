@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometria Analitica — Superellisse</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #fdf6ee;
+            --card: #ffffff;
+            --accent: #ff6b35;
+            --accent2: #4ecdc4;
+            --line-color: #e63946;
+            --grid: #e8dfd4;
+            --axis: #2d2d2d;
+            --text: #2d2d2d;
+            --muted: #9b8ea0;
+            --shadow: 0 8px 32px rgba(0,0,0,0.10);
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 28px 16px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        header h1 {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--accent);
+            line-height: 1.1;
+        }
+
+        header p {
+            margin-top: 6px;
+            color: var(--muted);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .formula-banner {
+            background: var(--axis);
+            color: #fff;
+            border-radius: 14px;
+            font-family: 'Caveat', cursive;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 4px;
+            padding: 12px 24px;
+            width: 100%;
+            max-width: 960px;
+            margin-bottom: 24px;
+        }
+
+        .formula-banner span.n-val { color: #ffd166; }
+
+        .radical {
+            display: inline-flex;
+            align-items: stretch;
+            vertical-align: middle;
+        }
+
+        .radical .index {
+            font-size: 0.6em;
+            align-self: flex-start;
+            margin-right: -2px;
+            position: relative;
+            top: 0.15em;
+        }
+
+        .radical .sqrt-sign {
+            font-size: 1.4em;
+            line-height: 1;
+            align-self: stretch;
+        }
+
+        .radical .radicand {
+            border-top: 2px solid #fff;
+            padding: 2px 6px 0 3px;
+            align-self: stretch;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .main-layout {
+            display: flex;
+            gap: 24px;
+            width: 100%;
+            max-width: 960px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .canvas-wrap {
+            background: var(--card);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            padding: 12px;
+            flex: 1 1 400px;
+            max-width: 580px;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .controls {
+            background: var(--card);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            padding: 28px 24px;
+            flex: 0 0 260px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .slider-group label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 800;
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        .slider-group label .var-name {
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+        }
+
+        .slider-group label .var-name.n { color: #ffd166; }
+
+        .slider-group label .val-badge {
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            background: var(--bg);
+            border-radius: 8px;
+            width: 64px;
+            height: 52px;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 99px;
+            outline: none;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        input[type=range].n-slider {
+            background: linear-gradient(to right, var(--bg) 0%, #ffd166 100%);
+            accent-color: #e6aa00;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.15s;
+            background: #e6aa00;
+        }
+
+        input[type=range]:hover::-webkit-slider-thumb { transform: scale(1.2); }
+
+        .hint-box {
+            background: #fff8f0;
+            border-left: 4px solid var(--accent);
+            border-radius: 0 12px 12px 0;
+            padding: 12px 14px;
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.55;
+        }
+
+        .hint-box strong { color: var(--accent); }
+        .hint-box .accent2 { color: var(--accent2); font-weight: 700; }
+
+        .shape-label {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            background: var(--bg);
+            color: var(--accent);
+        }
+
+        sup { font-size: 0.7em; vertical-align: super; }
+
+        @media (max-width: 600px) {
+            .controls { flex: 1 1 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>📐 La Superellisse</h1>
+    <p>Sposta il cursore e osserva come cambia la forma!</p>
+    <a href="index.html" style="color: var(--muted); font-size: 0.9rem;">← Torna all'indice</a>
+</header>
+
+<div class="formula-banner" id="formula">
+    r = <span class="radical"><span class="index n-val">2</span><span class="sqrt-sign">√</span><span class="radicand">|x|<sup><span class="n-val">2</span></sup> + |y|<sup><span class="n-val">2</span></sup></span></span>
+</div>
+
+<div class="slider-group" style="width: 100%; max-width: 960px; margin-bottom: 24px;">
+    <label>
+        <span class="var-name n">n &nbsp;</span>
+        <span>Esponente</span>
+        <span class="val-badge" id="nVal">2</span>
+    </label>
+    <input type="range" class="n-slider" id="nSlider" min="0" max="2000" step="1" value="1000">
+    <div id="shapeLabel" class="shape-label" style="margin-top: 8px;">Cerchio</div>
+</div>
+
+<div class="main-layout">
+    <div class="canvas-wrap">
+        <canvas id="plane" width="560" height="560"></canvas>
+    </div>
+
+    <div class="controls">
+        <div class="hint-box">
+            <strong>n</strong> controlla la <em>forma</em> della curva.<br><br>
+            <div>n &lt; 1 → stella / croce</div>
+            <div>n = 1 → rombo (diamante)</div>
+            <div>n = 2 → cerchio</div>
+            <div>n &gt; 2 → rettangolo arrotondato</div>
+            <div>n → ∞ → quadrato</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const canvas = document.getElementById('plane');
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height;
+    const CX = W / 2, CY = H / 2;
+    const SCALE = 45;
+    const RANGE = Math.ceil(CX / SCALE) + 1;
+    const RADIUS = 4; // radius of the superellipse in units
+
+    const nSlider = document.getElementById('nSlider');
+
+    // Non-linear slider mapping: slider 0–2000, midpoint (1000) = n=2
+    // Left half:  0–1000   → n = 0.1–2   (exponential, mirrors right)
+    // Right half: 1000–2000 → n = 2–40   (exponential)
+    function sliderToN(val) {
+        if (val <= 1000) {
+            // t goes from 1 to 0 as val goes from 0 to 1000
+            const t = 1 - val / 1000;
+            // mirror of right half: 2 / 20^t → ranges from 0.1 (val=0) to 2 (val=1000)
+            return 2 / Math.pow(20, t);
+        } else {
+            const t = (val - 1000) / 1000;
+            return 2 * Math.pow(20, t);
+        }
+    }
+
+    function getShapeName(n) {
+        if (n < 0.5) return 'Stella';
+        if (n < 0.95) return 'Astroide';
+        if (n >= 0.95 && n <= 1.05) return 'Rombo';
+        if (n > 1.05 && n < 1.95) return 'Forma intermedia';
+        if (n >= 1.95 && n <= 2.05) return 'Cerchio';
+        if (n > 2.05 && n < 20) return 'Rettangolo arrotondato';
+        return 'Quasi un quadrato';
+    }
+
+    function draw(n) {
+        ctx.clearRect(0, 0, W, H);
+
+        // Background
+        ctx.fillStyle = '#fdf6ee';
+        ctx.fillRect(0, 0, W, H);
+
+        // Grid
+        ctx.strokeStyle = '#e8dfd4';
+        ctx.lineWidth = 1;
+        for (let i = -RANGE; i <= RANGE; i++) {
+            let x = CX + i * SCALE;
+            ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+            let y = CY + i * SCALE;
+            ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+        }
+
+        // Axes
+        ctx.strokeStyle = '#2d2d2d';
+        ctx.lineWidth = 2.5;
+        ctx.beginPath(); ctx.moveTo(0, CY); ctx.lineTo(W, CY); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(CX, 0); ctx.lineTo(CX, H); ctx.stroke();
+
+        // Arrows
+        ctx.fillStyle = '#2d2d2d';
+        ctx.beginPath(); ctx.moveTo(W-4, CY); ctx.lineTo(W-16, CY-7); ctx.lineTo(W-16, CY+7); ctx.fill();
+        ctx.beginPath(); ctx.moveTo(CX, 4); ctx.lineTo(CX-7, 16); ctx.lineTo(CX+7, 16); ctx.fill();
+
+        // Axis labels
+        ctx.font = 'bold 16px Nunito, sans-serif';
+        ctx.fillStyle = '#2d2d2d';
+        ctx.fillText('x', W - 12, CY - 10);
+        ctx.fillText('y', CX + 10, 14);
+
+        // Ticks & numbers
+        ctx.font = '13px Nunito, sans-serif';
+        ctx.fillStyle = '#888';
+        ctx.lineWidth = 1.5;
+        for (let i = -RANGE; i <= RANGE; i++) {
+            if (i === 0) continue;
+            let tx = CX + i * SCALE;
+            ctx.strokeStyle = '#2d2d2d';
+            ctx.beginPath(); ctx.moveTo(tx, CY - 5); ctx.lineTo(tx, CY + 5); ctx.stroke();
+            ctx.textAlign = 'center';
+            ctx.fillText(i, tx, CY + 18);
+            let ty = CY - i * SCALE;
+            ctx.beginPath(); ctx.moveTo(CX - 5, ty); ctx.lineTo(CX + 5, ty); ctx.stroke();
+            ctx.textAlign = 'right';
+            ctx.fillText(i, CX - 9, ty + 5);
+        }
+        ctx.fillText('0', CX - 9, CY + 18);
+
+        // Draw the superellipse: |x/r|^n + |y/r|^n = 1
+        // Parametric: x = r * sign(cos t) * |cos t|^(2/n), y = r * sign(sin t) * |sin t|^(2/n)
+        const r = RADIUS;
+        const steps = 1000;
+        ctx.save();
+        ctx.strokeStyle = '#e63946';
+        ctx.lineWidth = 3;
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+        ctx.shadowColor = 'rgba(230,57,70,0.35)';
+        ctx.shadowBlur = 10;
+        ctx.beginPath();
+
+        for (let i = 0; i <= steps; i++) {
+            const t = (i / steps) * 2 * Math.PI;
+            const cosT = Math.cos(t);
+            const sinT = Math.sin(t);
+            const exp = 2 / n;
+            const px = r * Math.sign(cosT) * Math.pow(Math.abs(cosT), exp);
+            const py = r * Math.sign(sinT) * Math.pow(Math.abs(sinT), exp);
+            const sx = CX + px * SCALE;
+            const sy = CY - py * SCALE;
+            if (i === 0) {
+                ctx.moveTo(sx, sy);
+            } else {
+                ctx.lineTo(sx, sy);
+            }
+        }
+        ctx.closePath();
+        ctx.stroke();
+        ctx.restore();
+    }
+
+    function update() {
+        const sliderVal = parseInt(nSlider.value);
+        const n = sliderToN(sliderVal);
+
+        // Badge
+        const decFmt = v => v.toFixed(2);
+        document.getElementById('nVal').textContent = decFmt(n);
+
+        // Formula banner
+        const nStr = decFmt(n);
+        document.getElementById('formula').innerHTML =
+            `r = <span class="radical"><span class="index n-val">${nStr}</span> <span class="sqrt-sign">&nbsp;√</span><span class="radicand">|x|<sup><span class="n-val">${nStr}</span></sup> + |y|<sup><span class="n-val">${nStr}</span></sup></span></span>`;
+
+        // Shape label
+        document.getElementById('shapeLabel').textContent = getShapeName(n);
+
+        // Slider fill
+        const pct = (sliderVal / 2000) * 100;
+        nSlider.style.background = `linear-gradient(to right, #ffd166 0%, #ffd166 ${pct}%, #f0e6d0 ${pct}%, #f0e6d0 100%)`;
+
+        draw(n);
+    }
+
+    nSlider.addEventListener('input', update);
+    update();
+</script>
+</body>
+</html>
