@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometria Analitica — Fiocco di Koch</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #fdf6ee;
+            --card: #ffffff;
+            --accent: #ff6b35;
+            --accent2: #4ecdc4;
+            --line-color: #e63946;
+            --grid: #e8dfd4;
+            --axis: #2d2d2d;
+            --text: #2d2d2d;
+            --muted: #9b8ea0;
+            --shadow: 0 8px 32px rgba(0,0,0,0.10);
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 28px 16px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        header h1 {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--accent);
+            line-height: 1.1;
+        }
+
+        header p {
+            margin-top: 6px;
+            color: var(--muted);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .formula-banner {
+            background: var(--axis);
+            color: #fff;
+            border-radius: 14px;
+            font-family: 'Caveat', cursive;
+            font-size: 1.7rem;
+            letter-spacing: 1px;
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 4px;
+            padding: 12px 24px;
+            width: 100%;
+            max-width: 960px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .formula-banner span.n-val { color: #ffd166; }
+        .formula-banner span.s-val { color: var(--accent2); }
+
+        .main-layout {
+            display: flex;
+            gap: 24px;
+            width: 100%;
+            max-width: 960px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .canvas-wrap {
+            background: var(--card);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            padding: 12px;
+            flex: 1 1 400px;
+            max-width: 580px;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .controls {
+            background: var(--card);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            padding: 28px 24px;
+            flex: 0 0 260px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .slider-group label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 800;
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        .slider-group label .var-name {
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+        }
+
+        .slider-group label .var-name.n { color: #ffd166; }
+        .slider-group label .var-name.s { color: var(--accent2); }
+
+        .slider-group label .val-badge {
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            background: var(--bg);
+            border-radius: 8px;
+            width: 64px;
+            height: 52px;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 99px;
+            outline: none;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        input[type=range].n-slider {
+            accent-color: #e6aa00;
+        }
+
+        input[type=range].s-slider {
+            accent-color: #2ba39b;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.15s;
+        }
+
+        input[type=range].n-slider::-webkit-slider-thumb { background: #e6aa00; }
+        input[type=range].s-slider::-webkit-slider-thumb { background: #2ba39b; }
+
+        input[type=range]:hover::-webkit-slider-thumb { transform: scale(1.2); }
+
+        .hint-box {
+            background: #fff8f0;
+            border-left: 4px solid var(--accent);
+            border-radius: 0 12px 12px 0;
+            padding: 12px 14px;
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.55;
+        }
+
+        .hint-box strong { color: var(--accent); }
+        .hint-box .accent2 { color: var(--accent2); font-weight: 700; }
+
+        .shape-label {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            background: var(--bg);
+            color: var(--accent);
+        }
+
+        .stats {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .stats strong {
+            color: var(--text);
+        }
+
+        sup { font-size: 0.7em; vertical-align: super; }
+
+        @media (max-width: 600px) {
+            .controls { flex: 1 1 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>❄️ Il Fiocco di Koch</h1>
+    <p>Scegli il poligono di partenza e quante volte "spezzare" i suoi lati!</p>
+    <a href="index.html" style="color: var(--muted); font-size: 0.9rem;">← Torna all'indice</a>
+</header>
+
+<div class="formula-banner" id="formula">
+    Poligono di <span class="s-val">3</span> lati, <span class="n-val">0</span> iterazioni
+</div>
+
+<div class="main-layout">
+    <div class="canvas-wrap">
+        <canvas id="plane" width="560" height="560"></canvas>
+    </div>
+
+    <div class="controls">
+        <div class="slider-group">
+            <label>
+                <span class="var-name s">L &nbsp;</span>
+                <span>Lati</span>
+                <span class="val-badge" id="sVal">3</span>
+            </label>
+            <input type="range" class="s-slider" id="sSlider" min="3" max="12" step="1" value="3">
+        </div>
+
+        <div class="slider-group">
+            <label>
+                <span class="var-name n">k &nbsp;</span>
+                <span>Iterazioni</span>
+                <span class="val-badge" id="nVal">0</span>
+            </label>
+            <input type="range" class="n-slider" id="nSlider" min="0" max="7" step="1" value="0">
+            <div id="shapeLabel" class="shape-label">Poligono di partenza</div>
+        </div>
+
+        <div class="hint-box">
+            <strong>L</strong> sceglie il poligono regolare di partenza (3 = triangolo → fiocco di Koch classico).<br><br>
+            <strong>k</strong> è il numero di iterazioni: ad ogni passo ogni lato viene diviso in tre parti, e su quella centrale si costruisce una punta triangolare rivolta verso l'esterno.
+        </div>
+
+        <div class="stats">
+            <div>Segmenti: <strong id="segCount">3</strong></div>
+            <div>Lunghezza relativa: <strong id="lenRatio">1.00</strong>×</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const canvas = document.getElementById('plane');
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height;
+    const CX = W / 2, CY = H / 2;
+
+    const sSlider = document.getElementById('sSlider');
+    const nSlider = document.getElementById('nSlider');
+
+    // Build the initial regular polygon's vertices (closed loop of points)
+    function regularPolygon(sides, radius) {
+        const pts = [];
+        // start pointing up, so triangle looks "classic"
+        const startAngle = -Math.PI / 2;
+        for (let i = 0; i < sides; i++) {
+            const a = startAngle + (i / sides) * 2 * Math.PI;
+            pts.push({ x: radius * Math.cos(a), y: radius * Math.sin(a) });
+        }
+        return pts;
+    }
+
+    // Given the two points (a, b) that mark the middle third of an edge, build the
+    // intermediate vertices of a regular "sides"-gon that has a-b as one of its edges,
+    // bulging outward (away from the shape's edge). Returns only the (sides - 2)
+    // intermediate points between a and b (not a or b themselves).
+    function buildBumpPoints(a, b, sides) {
+        const edgeLen = Math.hypot(b.x - a.x, b.y - a.y);
+        const R = edgeLen / (2 * Math.sin(Math.PI / sides));       // circumradius
+        const apothem = R * Math.cos(Math.PI / sides);              // center-to-edge distance
+        const mid = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
+
+        const dx = b.x - a.x, dy = b.y - a.y;
+        const len = Math.hypot(dx, dy);
+        // perpendicular to a->b, rotated -90deg, points outward (away from shape interior)
+        const perpX = dy / len, perpY = -dx / len;
+        const center = { x: mid.x + perpX * apothem, y: mid.y + perpY * apothem };
+
+        const angA = Math.atan2(a.y - center.y, a.x - center.x);
+        const angB = Math.atan2(b.y - center.y, b.x - center.x);
+        const step = (2 * Math.PI) / sides;
+
+        // Walk (sides - 1) steps from a's angle in whichever direction lands on b's
+        // angle (the long way around the polygon, since a-b is itself one edge).
+        for (const dir of [1, -1]) {
+            const angles = [];
+            let ang = angA;
+            for (let s = 0; s < sides - 1; s++) {
+                ang += dir * step;
+                angles.push(ang);
+            }
+            const finalDiff = Math.atan2(Math.sin(angles[angles.length - 1] - angB), Math.cos(angles[angles.length - 1] - angB));
+            if (Math.abs(finalDiff) < 1e-6) {
+                const points = [];
+                for (let s = 0; s < sides - 2; s++) {
+                    points.push({ x: center.x + R * Math.cos(angles[s]), y: center.y + R * Math.sin(angles[s]) });
+                }
+                return points;
+            }
+        }
+        // Fallback (shouldn't happen): no bump, just a straight segment
+        return [];
+    }
+
+    // One Koch iteration over a closed polygon (array of points, loop implied).
+    // The bump built on the middle third of every segment is itself a regular
+    // "sides"-gon (the same shape as the base polygon), not a fixed triangle.
+    function kochStep(points, sides) {
+        const result = [];
+        const len = points.length;
+
+        for (let i = 0; i < len; i++) {
+            const p1 = points[i];
+            const p2 = points[(i + 1) % len];
+
+            const dx = p2.x - p1.x;
+            const dy = p2.y - p1.y;
+
+            const a = { x: p1.x + dx / 3, y: p1.y + dy / 3 };
+            const b = { x: p1.x + dx * 2 / 3, y: p1.y + dy * 2 / 3 };
+
+            const bump = buildBumpPoints(a, b, sides);
+            result.push(p1, a, ...bump, b);
+        }
+        return result;
+    }
+
+    function buildKoch(sides, iterations) {
+        // Choose radius so the polygon roughly fills the canvas regardless of side count
+        let points = regularPolygon(sides, 3.6);
+        for (let i = 0; i < iterations; i++) {
+            points = kochStep(points, sides);
+        }
+        return points;
+    }
+
+    function getShapeName(sides, k) {
+        const names = {3: 'Triangolo', 4: 'Quadrato', 5: 'Pentagono', 6: 'Esagono', 7: 'Ettagono', 8: 'Ottagono', 9: 'Ennagono', 10: 'Decagono', 11: 'Endecagono', 12: 'Dodecagono'};
+        const base = names[sides] || (sides + ' lati');
+        if (k === 0) return base + ' (poligono di partenza)';
+        if (sides === 3) return k === 1 ? 'Stella di Davide' : 'Fiocco di Koch (k=' + k + ')';
+        return base + ' frattale (k=' + k + ')';
+    }
+
+    // The view (scale + center) is fixed per `sides` value, so changing only the
+    // iteration slider never moves or rescales the shape. We determine the true
+    // worst-case extent by actually running a few Koch iterations once (growth
+    // converges geometrically, so a handful of iterations captures effectively
+    // all of the outward bump growth) and fitting the canvas to that.
+    let cachedSides = null;
+    let cachedFit = null;
+
+    function getFit(sides) {
+        if (cachedSides !== sides) {
+            const probeIterations = 4; // enough for the bbox growth to converge
+            let probePoints = regularPolygon(sides, 3.6);
+            for (let i = 0; i < probeIterations; i++) {
+                probePoints = kochStep(probePoints, sides);
+            }
+            let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+            for (const p of probePoints) {
+                if (p.x < minX) minX = p.x;
+                if (p.x > maxX) maxX = p.x;
+                if (p.y < minY) minY = p.y;
+                if (p.y > maxY) maxY = p.y;
+            }
+            const w = maxX - minX, h = maxY - minY;
+            const margin = 60;
+            const scale = Math.min((W - margin) / w, (H - margin) / h);
+            const cx = (minX + maxX) / 2;
+            const cy = (minY + maxY) / 2;
+            cachedSides = sides;
+            cachedFit = { scale, cx, cy };
+        }
+        return cachedFit;
+    }
+
+    function draw(sides, k) {
+        ctx.clearRect(0, 0, W, H);
+
+        // Background
+        ctx.fillStyle = '#fdf6ee';
+        ctx.fillRect(0, 0, W, H);
+
+        const points = buildKoch(sides, k);
+        const { scale, cx, cy } = getFit(sides);
+
+        // light grid for context
+        ctx.strokeStyle = '#e8dfd4';
+        ctx.lineWidth = 1;
+        const gridStep = 40;
+        for (let x = 0; x <= W; x += gridStep) {
+            ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+        }
+        for (let y = 0; y <= H; y += gridStep) {
+            ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+        }
+
+        const toScreen = p => ({
+            x: CX + (p.x - cx) * scale,
+            y: CY + (p.y - cy) * scale
+        });
+
+        ctx.save();
+        ctx.strokeStyle = '#e63946';
+        ctx.lineWidth = 2.2;
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+        ctx.shadowColor = 'rgba(230,57,70,0.35)';
+        ctx.shadowBlur = 8;
+        ctx.beginPath();
+
+        points.forEach((p, i) => {
+            const sp = toScreen(p);
+            if (i === 0) ctx.moveTo(sp.x, sp.y);
+            else ctx.lineTo(sp.x, sp.y);
+        });
+        ctx.closePath();
+        ctx.stroke();
+
+        // subtle fill
+        ctx.fillStyle = 'rgba(230,57,70,0.06)';
+        ctx.fill();
+        ctx.restore();
+
+        return points.length;
+    }
+
+    function update() {
+        const sides = parseInt(sSlider.value);
+        const k = parseInt(nSlider.value);
+
+        document.getElementById('sVal').textContent = sides;
+        document.getElementById('nVal').textContent = k;
+
+        document.getElementById('formula').innerHTML =
+            `Poligono di <span class="s-val">${sides}</span> lati, <span class="n-val">${k}</span> iterazion${k === 1 ? 'e' : 'i'}`;
+
+        document.getElementById('shapeLabel').textContent = getShapeName(sides, k);
+
+        const segCount = draw(sides, k);
+        document.getElementById('segCount').textContent = segCount;
+        // Each iteration replaces every segment with `sides` new segments,
+        // each 1/3 the length, so total length scales by sides/3 per step.
+        document.getElementById('lenRatio').textContent = Math.pow(sides / 3, k).toFixed(2);
+    }
+
+    sSlider.addEventListener('input', update);
+    nSlider.addEventListener('input', update);
+    update();
+</script>
+</body>
+</html>
