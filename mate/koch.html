@@ -73,6 +73,7 @@
 
         .formula-banner span.n-val { color: #ffd166; }
         .formula-banner span.s-val { color: var(--accent2); }
+        .formula-banner span.p-val { color: var(--accent); }
 
         .main-layout {
             display: flex;
@@ -126,6 +127,7 @@
 
         .slider-group label .var-name.n { color: #ffd166; }
         .slider-group label .var-name.s { color: var(--accent2); }
+        .slider-group label .var-name.p { color: var(--accent); }
 
         .slider-group label .val-badge {
             font-family: 'Caveat', cursive;
@@ -159,6 +161,10 @@
             accent-color: #2ba39b;
         }
 
+        input[type=range].p-slider {
+            accent-color: #ff6b35;
+        }
+
         input[type=range]::-webkit-slider-thumb {
             -webkit-appearance: none;
             width: 26px;
@@ -172,8 +178,32 @@
 
         input[type=range].n-slider::-webkit-slider-thumb { background: #e6aa00; }
         input[type=range].s-slider::-webkit-slider-thumb { background: #2ba39b; }
+        input[type=range].p-slider::-webkit-slider-thumb { background: #ff6b35; }
 
         input[type=range]:hover::-webkit-slider-thumb { transform: scale(1.2); }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            line-height: 1.3;
+        }
+
+        .checkbox-label input[type=checkbox] {
+            width: 22px;
+            height: 22px;
+            flex-shrink: 0;
+            accent-color: var(--accent);
+            cursor: pointer;
+        }
 
         .hint-box {
             background: #fff8f0;
@@ -227,7 +257,7 @@
 </header>
 
 <div class="formula-banner" id="formula">
-    Poligono di <span class="s-val">3</span> lati, <span class="n-val">0</span> iterazioni
+    Base di <span class="p-val">3</span> lati, punte di <span class="s-val">3</span> lati, <span class="n-val">0</span> iterazioni verso l'esterno
 </div>
 
 <div class="main-layout">
@@ -238,8 +268,17 @@
     <div class="controls">
         <div class="slider-group">
             <label>
-                <span class="var-name s">L &nbsp;</span>
-                <span>Lati</span>
+                <span class="var-name p">P &nbsp;</span>
+                <span>Lati base</span>
+                <span class="val-badge" id="pVal">3</span>
+            </label>
+            <input type="range" class="p-slider" id="pSlider" min="3" max="12" step="1" value="3">
+        </div>
+
+        <div class="slider-group">
+            <label>
+                <span class="var-name s">B &nbsp;</span>
+                <span>Lati espansione</span>
                 <span class="val-badge" id="sVal">3</span>
             </label>
             <input type="range" class="s-slider" id="sSlider" min="3" max="12" step="1" value="3">
@@ -251,13 +290,21 @@
                 <span>Iterazioni</span>
                 <span class="val-badge" id="nVal">0</span>
             </label>
-            <input type="range" class="n-slider" id="nSlider" min="0" max="7" step="1" value="0">
+            <input type="range" class="n-slider" id="nSlider" min="0" max="5" step="1" value="0">
             <div id="shapeLabel" class="shape-label">Poligono di partenza</div>
         </div>
 
+        <div class="checkbox-group">
+            <label class="checkbox-label">
+                <input type="checkbox" id="inwardCheckbox">
+                <span>Espansione verso l'interno (antifiocco)</span>
+            </label>
+        </div>
+
         <div class="hint-box">
-            <strong>L</strong> sceglie il poligono regolare di partenza (3 = triangolo → fiocco di Koch classico).<br><br>
-            <strong>k</strong> è il numero di iterazioni: ad ogni passo ogni lato viene diviso in tre parti, e su quella centrale si costruisce una punta triangolare rivolta verso l'esterno.
+            <strong>P</strong> sceglie il poligono regolare di partenza.<br><br>
+            <strong>B</strong> sceglie la forma della punta costruita su ogni lato (3 = punta triangolare → fiocco di Koch classico).<br><br>
+            <strong>k</strong> è il numero di iterazioni: ad ogni passo ogni lato viene diviso in tre parti, e su quella centrale si costruisce la punta scelta, rivolta verso l'esterno o l'interno.
         </div>
 
         <div class="stats">
@@ -273,8 +320,6 @@
     const W = canvas.width, H = canvas.height;
     const CX = W / 2, CY = H / 2;
 
-    const sSlider = document.getElementById('sSlider');
-    const nSlider = document.getElementById('nSlider');
 
     // Build the initial regular polygon's vertices (closed loop of points)
     function regularPolygon(sides, radius) {
@@ -289,38 +334,40 @@
     }
 
     // Given the two points (a, b) that mark the middle third of an edge, build the
-    // intermediate vertices of a regular "sides"-gon that has a-b as one of its edges,
-    // bulging outward (away from the shape's edge). Returns only the (sides - 2)
-    // intermediate points between a and b (not a or b themselves).
-    function buildBumpPoints(a, b, sides) {
+    // intermediate vertices of a regular "bumpSides"-gon that has a-b as one of its
+    // edges, bulging outward (or inward, for the antisnowflake variant) from the
+    // shape's edge. Returns only the (bumpSides - 2) intermediate points between
+    // a and b (not a or b themselves).
+    function buildBumpPoints(a, b, bumpSides, inward) {
         const edgeLen = Math.hypot(b.x - a.x, b.y - a.y);
-        const R = edgeLen / (2 * Math.sin(Math.PI / sides));       // circumradius
-        const apothem = R * Math.cos(Math.PI / sides);              // center-to-edge distance
+        const R = edgeLen / (2 * Math.sin(Math.PI / bumpSides));       // circumradius
+        const apothem = R * Math.cos(Math.PI / bumpSides);              // center-to-edge distance
         const mid = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
 
         const dx = b.x - a.x, dy = b.y - a.y;
         const len = Math.hypot(dx, dy);
-        // perpendicular to a->b, rotated -90deg, points outward (away from shape interior)
-        const perpX = dy / len, perpY = -dx / len;
+        // perpendicular to a->b, rotated -90deg (outward). Flip sign for inward bumps.
+        const sign = inward ? -1 : 1;
+        const perpX = sign * dy / len, perpY = sign * -dx / len;
         const center = { x: mid.x + perpX * apothem, y: mid.y + perpY * apothem };
 
         const angA = Math.atan2(a.y - center.y, a.x - center.x);
         const angB = Math.atan2(b.y - center.y, b.x - center.x);
-        const step = (2 * Math.PI) / sides;
+        const step = (2 * Math.PI) / bumpSides;
 
-        // Walk (sides - 1) steps from a's angle in whichever direction lands on b's
-        // angle (the long way around the polygon, since a-b is itself one edge).
+        // Walk (bumpSides - 1) steps from a's angle in whichever direction lands on
+        // b's angle (the long way around the polygon, since a-b is itself one edge).
         for (const dir of [1, -1]) {
             const angles = [];
             let ang = angA;
-            for (let s = 0; s < sides - 1; s++) {
+            for (let s = 0; s < bumpSides - 1; s++) {
                 ang += dir * step;
                 angles.push(ang);
             }
             const finalDiff = Math.atan2(Math.sin(angles[angles.length - 1] - angB), Math.cos(angles[angles.length - 1] - angB));
             if (Math.abs(finalDiff) < 1e-6) {
                 const points = [];
-                for (let s = 0; s < sides - 2; s++) {
+                for (let s = 0; s < bumpSides - 2; s++) {
                     points.push({ x: center.x + R * Math.cos(angles[s]), y: center.y + R * Math.sin(angles[s]) });
                 }
                 return points;
@@ -331,9 +378,9 @@
     }
 
     // One Koch iteration over a closed polygon (array of points, loop implied).
-    // The bump built on the middle third of every segment is itself a regular
-    // "sides"-gon (the same shape as the base polygon), not a fixed triangle.
-    function kochStep(points, sides) {
+    // The bump built on the middle third of every segment is a regular
+    // "bumpSides"-gon, pointing outward or inward depending on `inward`.
+    function kochStep(points, bumpSides, inward) {
         const result = [];
         const len = points.length;
 
@@ -347,46 +394,54 @@
             const a = { x: p1.x + dx / 3, y: p1.y + dy / 3 };
             const b = { x: p1.x + dx * 2 / 3, y: p1.y + dy * 2 / 3 };
 
-            const bump = buildBumpPoints(a, b, sides);
+            const bump = buildBumpPoints(a, b, bumpSides, inward);
             result.push(p1, a, ...bump, b);
         }
         return result;
     }
 
-    function buildKoch(sides, iterations) {
+    function buildKoch(baseSides, bumpSides, iterations, inward) {
         // Choose radius so the polygon roughly fills the canvas regardless of side count
-        let points = regularPolygon(sides, 3.6);
+        let points = regularPolygon(baseSides, 3.6);
         for (let i = 0; i < iterations; i++) {
-            points = kochStep(points, sides);
+            points = kochStep(points, bumpSides, inward);
         }
         return points;
     }
 
-    function getShapeName(sides, k) {
+    function getShapeName(baseSides, bumpSides, k, inward) {
         const names = {3: 'Triangolo', 4: 'Quadrato', 5: 'Pentagono', 6: 'Esagono', 7: 'Ettagono', 8: 'Ottagono', 9: 'Ennagono', 10: 'Decagono', 11: 'Endecagono', 12: 'Dodecagono'};
-        const base = names[sides] || (sides + ' lati');
+        const base = names[baseSides] || (baseSides + ' lati');
         if (k === 0) return base + ' (poligono di partenza)';
-        if (sides === 3) return k === 1 ? 'Stella di Davide' : 'Fiocco di Koch (k=' + k + ')';
-        return base + ' frattale (k=' + k + ')';
+        const dir = inward ? 'antifiocco' : 'fiocco';
+        if (baseSides === 3 && bumpSides === 3 && !inward) return k === 1 ? 'Stella di Davide' : 'Fiocco di Koch (k=' + k + ')';
+        return base + ' — ' + dir + ' (B=' + bumpSides + ', k=' + k + ')';
     }
 
-    // The view (scale + center) is fixed per `sides` value, so changing only the
-    // iteration slider never moves or rescales the shape. We determine the true
-    // worst-case extent by actually running a few Koch iterations once (growth
-    // converges geometrically, so a handful of iterations captures effectively
-    // all of the outward bump growth) and fitting the canvas to that.
-    let cachedSides = null;
+    // The view (scale + center) is fixed per (baseSides, bumpSides, inward) combo,
+    // so changing only the iteration slider never moves or rescales the shape. We
+    // determine the true worst-case extent by actually running a few Koch
+    // iterations once (growth converges geometrically, so a handful of iterations
+    // captures effectively all of the bump growth) and fitting the canvas to that.
+    let cachedFitKey = null;
     let cachedFit = null;
 
-    function getFit(sides) {
-        if (cachedSides !== sides) {
+    function getFit(baseSides, bumpSides, inward) {
+        const key = baseSides + '|' + bumpSides + '|' + inward;
+        if (cachedFitKey !== key) {
             const probeIterations = 4; // enough for the bbox growth to converge
-            let probePoints = regularPolygon(sides, 3.6);
+            let probePoints = regularPolygon(baseSides, 3.6);
             for (let i = 0; i < probeIterations; i++) {
-                probePoints = kochStep(probePoints, sides);
+                probePoints = kochStep(probePoints, bumpSides, inward);
             }
+            // For inward expansions the shape can only shrink relative to the base
+            // polygon, so also include the base polygon itself in the bbox to avoid
+            // fitting too tightly around a tiny collapsed shape at low iterations.
+            const basePoints = regularPolygon(baseSides, 3.6);
+            const allPoints = inward ? probePoints.concat(basePoints) : probePoints;
+
             let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
-            for (const p of probePoints) {
+            for (const p of allPoints) {
                 if (p.x < minX) minX = p.x;
                 if (p.x > maxX) maxX = p.x;
                 if (p.y < minY) minY = p.y;
@@ -397,21 +452,21 @@
             const scale = Math.min((W - margin) / w, (H - margin) / h);
             const cx = (minX + maxX) / 2;
             const cy = (minY + maxY) / 2;
-            cachedSides = sides;
+            cachedFitKey = key;
             cachedFit = { scale, cx, cy };
         }
         return cachedFit;
     }
 
-    function draw(sides, k) {
+    function draw(baseSides, bumpSides, k, inward) {
         ctx.clearRect(0, 0, W, H);
 
         // Background
         ctx.fillStyle = '#fdf6ee';
         ctx.fillRect(0, 0, W, H);
 
-        const points = buildKoch(sides, k);
-        const { scale, cx, cy } = getFit(sides);
+        const points = buildKoch(baseSides, bumpSides, k, inward);
+        const { scale, cx, cy } = getFit(baseSides, bumpSides, inward);
 
         // light grid for context
         ctx.strokeStyle = '#e8dfd4';
@@ -454,27 +509,38 @@
         return points.length;
     }
 
-    function update() {
-        const sides = parseInt(sSlider.value);
-        const k = parseInt(nSlider.value);
+    const pSlider = document.getElementById('pSlider');
+    const sSlider = document.getElementById('sSlider');
+    const nSlider = document.getElementById('nSlider');
+    const inwardCheckbox = document.getElementById('inwardCheckbox');
 
-        document.getElementById('sVal').textContent = sides;
+    function update() {
+        const baseSides = parseInt(pSlider.value);
+        const bumpSides = parseInt(sSlider.value);
+        const k = parseInt(nSlider.value);
+        const inward = inwardCheckbox.checked;
+
+        document.getElementById('pVal').textContent = baseSides;
+        document.getElementById('sVal').textContent = bumpSides;
         document.getElementById('nVal').textContent = k;
 
+        const dirLabel = inward ? 'verso l\'interno' : 'verso l\'esterno';
         document.getElementById('formula').innerHTML =
-            `Poligono di <span class="s-val">${sides}</span> lati, <span class="n-val">${k}</span> iterazion${k === 1 ? 'e' : 'i'}`;
+            `Base di <span class="p-val">${baseSides}</span> lati, punte di <span class="s-val">${bumpSides}</span> lati, <span class="n-val">${k}</span> iterazion${k === 1 ? 'e' : 'i'} ${dirLabel}`;
 
-        document.getElementById('shapeLabel').textContent = getShapeName(sides, k);
+        document.getElementById('shapeLabel').textContent = getShapeName(baseSides, bumpSides, k, inward);
 
-        const segCount = draw(sides, k);
+        const segCount = draw(baseSides, bumpSides, k, inward);
         document.getElementById('segCount').textContent = segCount;
-        // Each iteration replaces every segment with `sides` new segments,
-        // each 1/3 the length, so total length scales by sides/3 per step.
-        document.getElementById('lenRatio').textContent = Math.pow(sides / 3, k).toFixed(2);
+        // Each iteration replaces every segment with `bumpSides` new segments,
+        // each 1/3 the length, so total length scales by bumpSides/3 per step.
+        document.getElementById('lenRatio').textContent = Math.pow(bumpSides / 3, k).toFixed(2);
     }
 
+    pSlider.addEventListener('input', update);
     sSlider.addEventListener('input', update);
     nSlider.addEventListener('input', update);
+    inwardCheckbox.addEventListener('change', update);
     update();
 </script>
 </body>
